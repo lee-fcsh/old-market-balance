@@ -1,0 +1,125 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %} FASE 2: Opciones de negociación {% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions" style="padding: 1em;text-align: justify;margin-bottom: 2em;">
+    <div>
+        <h3>
+            GANANCIAS EN LA RONDA
+        </h3>
+        <hr>
+        <div>
+            <div>
+                <p>
+                    Las ganancias en cada ronda se ejecutan de la siguiente manera:
+                </p>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 17em;">
+                            <ul>
+        
+                                <li>Si ambas partes (comprador y vendedor) deciden <b>COMPLETAR</b> la transacción, entonces las
+                                    ganancias se calculan así:</li>
+        
+                                <div style="padding: 1em;">
+                                    <b>
+                                        GANANCIA DEL VENDEDOR: P - COSTO DE PRODUCCION (valor asignado) <br>
+                                        GANANCIA DEL COMPRADOR: PRESUPUESTO (valor asignado) - P
+                                    </b>
+                                </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 17em;">
+                            <li>Si el vendedor decide RENEGAR y el comprador decide COMPLETAR, entonces:</li>
+        
+                            <div>
+                                <ul style="list-style-type: circle;">
+                                    <li>El vendedor NO produce NI entrega el producto</li>
+                                    <li>El comprador PAGA el precio P, pero no recibe el producto.</li>
+                                </ul>
+                                por lo tanto , las ganancias se calculan así:
+                                <div style="padding: 1em;">
+                                    <b>
+                                        GANANCIA DEL VENDEDOR: P <br>
+                                        GANANCIA DEL COMPRADOR: - P
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 17em;">
+                            <li>Si el comprador decide RENEGAR y el vendedor decide COMPLETAR, entonces:</li>
+                            <div>
+                                <ul style="list-style-type: circle;">
+                                    <li>El vendedor PRODUCE y entrega el producto</li>
+                                    <li>El comprador NO PAGA el precio P, pero recibe el producto.</li>
+                                </ul>
+        
+                                <div style="padding: 1em;">
+                                    <b>
+                                        GANANCIA (PERDIDA) DEL VENDEDOR: - COSTO DE PRODUCCIÓN (valor asignado) <br>
+                                        GANANCIA DEL COMPRADOR: PRESUPUESTO (valor asignado)
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 17em;">
+                            <li>Si ambas partes, comprador y vendedor, deciden RENEGAR, la transacción se cancela (no se
+                                concreta) y ambos ganan 0 en esa ronda:</li>
+                            <div style="padding: 1em;">
+                                <b>
+                                    GANANCIA DEL VENDEDOR: 0 <br>
+                                    GANANCIA DEL COMPRADOR: 0
+                                </b>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </ul>
+            </table>
+
+        </div>
+        <hr>
+        <div>
+            <p>
+                Cada participante puede hacer solo una transacción por cada ronda de negociación. <br><br>
+
+                Si un participante no concreta una transacción, no obtiene ningún beneficio en esa ronda; es decir, su
+                valor (costo o presupuesto, según el rol) no se efectiviza. <br><br>
+
+                La ganancia total de cada participante será la suma de las ganancias en las 3 rondas de negociación de
+                esta fase. <br><br>
+
+                Dado que esta es una FASE DE ENTRENAMIENTO, LAS GANANCIAS EN ESTA FASE NO FORMAN PARTE DEL PAGO FINAL.
+                <br><br>
+
+                De clic en SIGUIENTE para iniciar.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% next_button %}
+{% endblock %}
+
+{% block styles %}
+<style>
+.otree-body{
+    max-width: 80%;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 10px 0px;
+}
+</style>
+{% endblock %}

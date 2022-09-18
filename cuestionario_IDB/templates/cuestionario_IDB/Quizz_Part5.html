@@ -1,0 +1,190 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+5. Perfil sociodemográfico
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="card bg-light instructions" style="padding: 1em; margin-bottom: 1em;">
+        <div align="center"><b>Preguntas</b></div>
+        <p style="text-align: justify;">
+            En esta última sección, le haremos algunas preguntas sobre usted. <br>
+            Por favor, rellene la siguiente información:
+            <br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em; margin-bottom: 1em;">
+        <div>
+            <p><b> ¿Cuál es su nacionalidad?</b></p>
+            <input type="text" name="PS1">
+
+        </div>
+        <br>
+        <div>
+            <p><b> ¿Cuál es su edad?</b></p>
+            <input type="number" name="PS2">
+        </div>
+        <br>
+        <div>
+            <p><b> Indique su género:</b><br>
+                <input type="radio" name="PS3" id="PS3_2" value="Hombre" style="margin-top: 1em;"> <label for="PS3_2">
+                    Hombre</label><br>
+                <input type="radio" name="PS3" id="PS3_3" value="Mujer"> <label for="PS3_3"> Mujer</label><br>
+            </p>
+        </div>
+        <br>
+        <div>
+            <p><b> ¿Podría decir cuál es su ingreso mensual?</b></p>
+            <input type="number" name="PS2"> <label for=""> USD</label><br>
+        </div>
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em;margin-bottom: 1em;">
+        <table class="blueTable">
+            <tbody>
+                <tr style="height: 3em;">
+                    <td colspan="3" style="text-align: justify; padding: 0.5em;">¿Cuál fue el último año de educación
+                        que usted completó o aprobó?</td>
+                </tr>
+
+                {% for id, preg in mult %}
+                <tr>
+                    <td style="width: 5%;">
+                        <input name="PS5" type="radio" value={{ id }}>
+                    </td>
+                    <td style="text-align: center;">
+                        {% if id == 1 %}
+                        1 año
+                        {% elif id == 18 %}
+                        18 años o mas
+                        {% else %}
+                        {{ id }} años
+                        {% endif %}
+
+                    </td>
+                    <td style="text-align: justify;">{{ preg }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em;margin-bottom: 1em;">
+        <p><b> En los últimos 5 años, ¿ha vivido usted en algún otro país?</b><br>
+            <input type="radio" name="PS6" id="PS6_1" value="Si" onclick="visible('pre_PS6P','block')" style="margin-top: 1em;"> <label for="PS6_1">
+                Si</label><br>
+            <input type="radio" name="PS6" id="PS6_2" value="No" onclick="visible('pre_PS6P','none')"> <label for="PS6_2"> No</label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions" id="pre_PS6P" style="display: none; padding: 1em;margin-bottom: 1em;" >
+        <p><b> ¿En qué países ha vivido durante los últimos 5 años? </b></p>
+        <input type="text" name="PS6P">
+
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em;margin-bottom: 1em;">
+        <p><b> En general, ¿qué tan satisfecho/a está con su vida? Usted diría que se encuentra:</b><br>
+            <input type="radio" name="PS7" id="PS7_1" value="Muy satisfecho/a" style="margin-top: 1em;"> <label
+                for="PS7_1"> Muy satisfecho/a</label><br>
+            <input type="radio" name="PS7" id="PS7_2" value="Algo satisfecho/a"> <label for="PS7_2"> Algo
+                satisfecho/a</label><br>
+            <input type="radio" name="PS7" id="PS7_3" value="Poco satisfecho/a"> <label for="PS7_3"> Poco
+                satisfecho/a</label><br>
+            <input type="radio" name="PS7" id="PS7_4" value="Nada satisfecho/a"> <label for="PS7_4"> Nada
+                satisfecho/a</label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em;margin-bottom: 1em;">
+        <p><b> ¿A qué raza considera usted que pertenece?</b><br>
+            <input type="radio" name="PS8" id="PS8_1" value="Muy satisfecho/a" style="margin-top: 1em;"> <label
+                for="PS8_1"> Asiático(a)</label><br>
+            <input type="radio" name="PS8" id="PS8_2" value="Algo satisfecho/a"> <label for="PS8_2">
+                Negro(a)</label><br>
+            <input type="radio" name="PS8" id="PS8_3" value="Poco satisfecho/a"> <label for="PS8_3">
+                Indígena</label><br>
+            <input type="radio" name="PS8" id="PS8_4" value="Nada satisfecho/a"> <label for="PS8_4">
+                Mestizo(a)</label><br>
+            <input type="radio" name="PS8" id="PS8_3" value="Poco satisfecho/a"> <label for="PS8_3">
+                Mulato(a)</label><br>
+            <input type="radio" name="PS8" id="PS8_3" value="Poco satisfecho/a"> <label for="PS8_3">
+                Blanco(a)</label><br>
+        </p>
+    </div>
+
+</div>
+{% next_button %}
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+    table.blueTable {
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        margin-bottom: 3%;
+    }
+
+    table.blueTable td,
+    table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+    }
+
+    table.blueTable tbody td {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    table.blueTable thead {
+        background: #409cff;
+        background: -moz-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: -webkit-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: linear-gradient(to bottom, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        border-bottom: 2px solid #444444;
+        text-align: justify;
+
+    }
+
+    table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        border-left: 2px solid #D0E4F5;
+    }
+
+    table.blueTable thead th:first-child {
+        border-left: none;
+    }
+
+    table.blueTable tfoot td {
+        font-size: 14px;
+    }
+
+    table.blueTable tfoot .links {
+        text-align: right;
+    }
+
+    table.blueTable tfoot .links a {
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block app_scripts %}
+<script>
+    function visible(id_div, valor) {
+        document.getElementById(id_div).style.display = valor;
+    }
+</script>
+{% endblock %}

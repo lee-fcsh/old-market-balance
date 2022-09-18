@@ -1,0 +1,218 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+3. Confianza en general
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <div class="card bg-light instructions">
+        <table class="blueTable">
+            <tbody>
+                <thead style="margin-top: 5em;">
+                    <th colspan="10" style="text-align: justify;padding: 0.5em;">Hablando en general, ¿hasta qué punto
+                        diría usted que
+                        se puede confiar en la mayoría de las personas? Aquí,
+                        el significado de los extremos de la escala es el siguiente: (1) “Uno tiene que ser muy
+                        cuidadoso cuando
+                        trata con los demás” y (7) “Se puede confiar en la mayoría de las personas” </th>
+                </thead>
+                <tr>
+                    {% for op in opciones %}
+                    <td style="width: 10%;">
+                        {{ op }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for op in opciones %}
+                    <td>
+                        <input name="CG1" type="radio" value={{ op }}>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card bg-light instructions">
+        <table class="blueTable">
+            <tbody>
+                <thead style="margin-top: 5em;">
+                    <th colspan="10" style="text-align: justify;padding: 0.5em;">“Supongo que la gente tiene solo las
+                        mejores
+                        intenciones”. ¿Hasta qué punto está de acuerdo o en desacuerdo con esta frase? El 1 significa
+                        “Muy en desacuerdo”. El 7 significa “Muy de acuerdo”</th>
+                </thead>
+                <tr>
+                    {% for op in opciones %}
+                    <td style="width: 10%;">
+                        {{ op }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for op in opciones %}
+                    <td>
+                        <input name="CG1" type="radio" value={{ op }}>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card bg-light instructions">
+        <table class="blueTable">
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: justify; padding: 0.5em;">Ahora le vamos a preguntar sobre algunos grupos de
+                        personas y si cree usted que es muy común, algo común, poco común, o nada común que cumplan con
+                        lo que prometen. </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Muy común</td>
+                    <td>Algo común</td>
+                    <td>Poco común</td>
+                    <td>Nada común</td>
+                </tr>
+                {% for id, preg in mult1 %}
+                <tr>
+                    <td style="text-align: justify;text-indent: 1em;">{{ preg }}</td>
+                    {% for n in opciones1 %}
+                    <td>
+                        <input name="CG{{ id }}" type="radio" value={{ n }}>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card bg-light instructions">
+        <table class="blueTable">
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: justify; padding: 0.5em;">Y pensando en estos mismos grupos de personas, cree
+                        usted que es muy común, algo común, poco común, o nada común que cumplan con las leyes y
+                        reglamentos del país.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Muy común</td>
+                    <td>Algo común</td>
+                    <td>Poco común</td>
+                    <td>Nada común</td>
+                </tr>
+                {% for id, preg in mult2 %}
+                <tr>
+                    <td style="text-align: justify;text-indent: 1em;">{{ preg }}</td>
+                    {% for n in opciones1 %}
+                    <td>
+                        <input name="CG{{ id }}" type="radio" value={{ n }}>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card bg-light instructions">
+        <table class="blueTable">
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: justify; padding: 0.5em;">Y pensando en estos mismos grupos de personas, cree
+                        usted que es muy común, algo común, poco común, o nada común que piensen en usted y en los
+                        intereses de gente como usted cuando toman decisiones.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Muy común</td>
+                    <td>Algo común</td>
+                    <td>Poco común</td>
+                    <td>Nada común</td>
+                </tr>
+                {% for id, preg in mult3 %}
+                <tr>
+                    <td style="text-align: justify;text-indent: 1em;">{{ preg }}</td>
+                    {% for n in opciones1 %}
+                    <td>
+                        <input name="CG{{ id }}" type="radio" value={{ n }}>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% next_button %}
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+    table.blueTable {
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        margin-bottom: 3%;
+    }
+
+    table.blueTable td,
+    table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+    }
+
+    table.blueTable tbody td {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    table.blueTable thead {
+        background: #409cff;
+        background: -moz-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: -webkit-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: linear-gradient(to bottom, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        border-bottom: 2px solid #444444;
+        text-align: justify;
+
+    }
+
+    table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        border-left: 2px solid #D0E4F5;
+    }
+
+    table.blueTable thead th:first-child {
+        border-left: none;
+    }
+
+    table.blueTable tfoot td {
+        font-size: 14px;
+    }
+
+    table.blueTable tfoot .links {
+        text-align: right;
+    }
+
+    table.blueTable tfoot .links a {
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}

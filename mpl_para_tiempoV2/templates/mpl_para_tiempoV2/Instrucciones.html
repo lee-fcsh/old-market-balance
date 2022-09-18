@@ -1,0 +1,99 @@
+{% load otree static staticfiles otree_tags %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+    <p class="text-justify">Esta tarea consiste en 15 decisiones que usted debe tomar, en cada una de éstas deberá elegir 
+      (<u><b>dar clic</b></u>), <u><b>según sus preferencias</u></b>, una de dos posibles alternativas 
+      de pago: <u><i><b>A</b></i></u>, que se pagaría después de X días a partir de hoy; o <u><i><b>B</b></i></u>, 
+      que se pagaría después X + t días a partir de hoy. En caso de ser <u><b>indiferente</b></u> 
+      entre estas dos opciones de pago, usted puede seleccionar <u><b><i>I</i></b></u>. 
+      <u><b>Note que</b></u> t > 0 por lo tanto el tiempo (X) < tiempo (X + t)
+    </p>
+    <hr>
+    <h4>Pago dentro de la tarea</h4>
+    <p class="text-justify">Esta tarea <u><b>se pagará solamente a UNO de los participantes de la sesión</b></u>, 
+      el mismo que será elegido de forma aleatoria por el programa. En otras palabras, 
+      tanto usted como los demás individuos dentro de este salón tienen la misma probabilidad 
+      de ser elegidos para recibir este pago.
+    </p>
+
+    <p class="text-justify">
+      En caso de ser seleccionado para el pago, el programa elegirá aleatoriamente 
+      una de sus 15 decisiones, de tal forma que <u><b>cada decisión que usted tome tendrá la misma 
+      probabilidad (1/15) de ser elegida para el pago</b></u>.
+    </p>
+    <p class="text-justify">
+      El pago de la decisión seleccionada se realizará de acuerdo a las condiciones 
+      y el tiempo descritos en la tarea. <u><b>Este pago se realizará en la fecha 
+        correspondiente de la decisión mediante transferencia bancaria directa a la 
+        cuenta indicada por el ganador al finalizar la sesión</b></u>. Para garantizar 
+        el cumplimiento del pago en el periodo correspondiente se entregará un certificado 
+        (orden de pago) firmado por el Director del Proyecto, en donde constan: la fecha, 
+        el monto y los términos de pago respectivos.
+      </p>
+
+    <hr>
+    <h4>Ejemplos:</h4>
+    <div class="row">
+    <div class="col-md-5 ejemplo">
+      <div class="panel panel-default ">
+        <div class="panel-heading ejemplo-titulo">
+          <h3 class="panel-title text-center"><b>Ejemplo 1:</b></h3>
+        </div>
+        <div class="panel-body panel_cuerpo">
+          <p class="text-justify">
+              Si usted es elegido como ganador dentro del sorteo. Suponga que la decisión 
+              seleccionada aleatoriamente es la número 10; en esta usted seleccionó la 
+              opción <i>B</i>, y; por lo tanto, recibirá un pago de US$ 93.20 (noventa y tres 
+              dólares con veinte centavos) dentro del plazo indicado a partir de hoy. Como 
+              garantía de que el pago se realizará en la fecha y monto correspondiente, 
+              recibirá un certificado (orden de pago) conjuntamente con el pago de las demás tareas de la sesión.
+          </p>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 ejemplo">
+      <div class="panel panel-default ">
+        <div class="panel-heading ejemplo-titulo">
+          <h3 class="panel-title text-center"><b>Ejemplo 2:</b></h3>
+        </div>
+        <div class="panel-body panel_cuerpo">
+          <p class="text-justify">
+              Si usted es elegido como ganador dentro del sorteo. Suponga que la 
+              decisión seleccionada aleatoriamente es la número 3 y en esta usted 
+              prefiere ser indiferente (<i>I</i>) entre las opciones <i>A</i> y <i>B</i>. 
+              Por lo tanto, el programa elige, de forma aleatoria una de las dos alternativas. 
+              Supongamos que el resultado fue el pago A. En este caso usted recibirá un pago 
+              de US$ 85.00 (ochenta y cinco dólares) dentro del plazo indicado a partir de hoy. 
+              Como garantía de que el pago se realizará en la fecha y monto correspondiente, 
+              recibirá un certificado (orden de pago) conjuntamente con el pago de las demás tareas de la sesión.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br>
+  </div>
+</div>
+    
+
+  <style type="text/css">
+    .ejemplo{
+      background: #ccddff;
+      margin-left: 5%;
+    }
+    div.panel-heading.ejemplo-titulo{
+      background: #80aaff;
+      padding: 0.5%;
+      margin-top: 3%;
+    }
+
+    .panel_cuerpo{
+      padding: 1%;
+    }
+    
+    .page-header{
+      margin-top: 1%;
+    }
+  </style>

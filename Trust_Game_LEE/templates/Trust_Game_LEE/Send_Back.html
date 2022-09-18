@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Tarea 3
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-bordered text-justify" style="width: 50%;">
+        <tbody>
+            <tr>
+                <td class="table-active">Usted es el participante</td>
+                <td> <strong>B</strong></td>
+            </tr>
+            <tr>
+                <td class="table-active">El participante A le envió:</td>
+                <td>{{group.sent_amount}}</td>
+            </tr>
+            <tr>
+                <td class="table-active">Usted recibe:</td>
+                <td>{{ tripled_amount }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% formfield group.sent_back_amount %}
+
+{% next_button %}
+
+{% endblock %}

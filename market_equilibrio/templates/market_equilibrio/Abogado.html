@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Equilibrio Dinámico
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h4>Tratamiento de Abogado</h4>
+        <br>
+
+        {% if player.role == 'vendedor' %}
+        <p class="text-justify">
+            <b>Usted es Vendedor</b>
+        </p>
+        {% else %}
+        <p class="text-justify">
+            <b>Usted es Comprador</b>
+        </p>
+        {% endif %}
+        <p>Elija si desea o no contratar un abogado por el precio de {{Constants.precio_abogado}}</p>
+        {% formfield player.abogado %}
+    </div>
+</div>
+
+
+<br>
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h5>Ganancias</h5>
+        <ul>
+            <li>Al recurrir a los servicios de un abogado, este asegura que el acuerdo se lleve a cabo por parte de su
+                pareja de transacción y el precio del abogado se le descontara al final de la ronda.</li>
+        </ul>
+
+    </div>
+</div>
+
+
+{% next_button %}
+
+{% endblock %}

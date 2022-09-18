@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados de la ETAPA 2
+{% endblock %}
+
+{% block content %}
+
+    <div align='center'>
+        <table class="table table-bordered text-center" style="width: 60%; margin: 4em;">
+            <tbody>
+                <tr style="font-size: 1.2em;">
+                    <td style="text-align: justify;">Su ganancia durante la <b>ETAPA 2</b> es:</td>
+                    <td style="text-align: right;"><b>{{ganancia_total|floatformat:2}} puntos</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+    <p style="font-size: 1.5em;">Estas ganancias forman parte del pago final del experimento.</p>
+    <br>
+    {% next_button %}
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %} ETAPA 1: ENTRENAMIENTO {% endblock %}
+
+{% block content %}
+
+<div  class="card bg-light instructions" style="padding: 1em;text-align: justify; margin-bottom: 2em;">
+    <div>
+        <p>
+            La etapa 1 está diseñada para que usted se familiarice con la estructura básica de decisiones de las tareas
+            propuestas. Contiene dos fases: 1) Mercado de subastas, y; 2) Oportunidades de negociación.
+        </p>
+    </div>
+    <hr>
+    <div>
+        <div>
+            <h3>
+                FASE 1: Mercado de subastas
+            </h3>
+        </div>
+
+        <div class="card-body">
+            <p>
+                En la fase 1 usted participará en un mercado de subastas en el cual los participantes podrán hacer
+                transacciones en varias rondas de negociación. En esta fase, los participantes serán asignados, con la
+                misma
+                probabilidad, en uno de dos posibles roles: <b>Vendedor o Comprador.</b> La decisión de todos los
+                participantes es
+                el <b>precio</b> al cual están dispuestos a vender o comprar el bien, respectivamente. A continuación,
+                se detallan
+                las características de la fase 1.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <div>
+            <h3>
+                ROLES
+            </h3>
+        </div>
+        <div class="card-body">
+            <p>
+                <b>El Vendedor:</b> El vendedor es la persona que produce el bien y está dispuesto a venderlo a un
+                cierto nivel
+                de precio. Debido a que producir cuesta, cada vendedor tendrá asignado, de manera aleatoria, un valor o
+                <b>costo de producción,</b> que lo conocerá de manera privada.
+            </p>
+            <p>
+                <b>El Comprador:</b> El comprador es la persona que consume el bien y está dispuesto a comprarlo a un
+                cierto
+                nivel de precio. Debido a que los recursos son limitados, cada participante con el rol de comprador
+                tendrá asignado, aleatoriamente, un valor o <b>presupuesto,</b> que lo conocerá de manera privada.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <div>
+            <h3>
+                TIPOS DE VALORES ASIGNADOS
+            </h3>
+        </div>
+        <div class="card-body">
+            <p>
+                Los vendedores y compradores reciben en cada ronda un valor que corresponde a su costo de producción y
+                presupuesto, respectivamente. <br><br>
+
+                Este valor, en ambos casos, determina el grupo al que pertenece cada participante: <b>H o L.</b> Los
+                participantes
+                que pertenecen al <b>grupo H</b> son, por un lado, los vendedores con un bajo costo de producción, y;
+                por otro, los
+                compradores con un presupuesto disponible alto. Por su parte, los participantes que pertenecen al
+                <b>grupo L</b>
+                son los vendedores con un alto costo de producción y los compradores con un bajo presupuesto disponible.
+                <br><br>
+
+                Durante la <b>rondas de negociación</b> (ver más adelante), cada participante conocerá, de manera
+                privada, el grupo
+                al que pertenece y el grupo al que pertenece su contraparte, según el valor asignado de manera
+                aleatoria.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% next_button %}
+{% endblock %}

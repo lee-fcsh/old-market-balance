@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Consentimiento
+{% endblock %}
+
+{% block content %}
+<div>
+    {% include Constants.text_consentimiento %}
+    <div align="center">
+        <p> <b> Desea continuar:</b></p>
+        <div>
+            <button name="offer_accepted" value="True" class="btn btn-primary btn-large">Si</button>
+            <button name="offer_accepted" value="False" class="btn btn-primary btn-large">No</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

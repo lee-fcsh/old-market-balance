@@ -1,0 +1,135 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    4.	 Justicia, discriminación y soledad 
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <div class="card bg-light instructions">
+        <p><b> Se describiría usted como parte de un grupo que no es valorado todo lo que se merece en Ecuador</b><br>
+        <input type="radio" name="JD1" id="JD1_1" value="Si" style="margin-top: 1em;"> <label for="JD1_1"> Si</label><br>
+        <input type="radio" name="JD1" id="JD1_2" value="No" > <label for="JD1_2"> No</label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions">
+        <p><b> ¿Cree usted que hay gente en este país que recibe más de lo que merece para el esfuerzo que realiza?</b><br>
+        <input type="radio" name="JD2" id="JD2_1" value="Si" style="margin-top: 1em;"> <label for="JD2_1"> Si</label><br>
+        <input type="radio" name="JD2" id="JD2_2" value="No" > <label for="JD2_2"> No</label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions">
+        <p><b> Cuando tenían su edad, ¿sus padres vivían mejor, igual o peor que usted?</b><br>
+        <input type="radio" name="JD3" id="JD3_1" value="Mejor" style="margin-top: 1em;"> <label for="JD3_1"> Mejor</label><br>
+        <input type="radio" name="JD3" id="JD3_2" value="Igual" > <label for="JD3_2"> Igual</label><br>
+        <input type="radio" name="JD3" id="JD3_3" value="Peor" > <label for="JD3_3"> Peor</label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions">
+        <p><b> Cuando tengan su edad, ¿sus hijos/as vivirán mejor, igual o peor que usted? (En caso de no tener hijos/as, conteste sobre los hijos/as de sus amigos/as o conocidos/as o sobre lo que imagina que pasaría si tuviera hijos.)</b><br>
+        <input type="radio" name="JD4" id="JD4_1" value="Mejor" style="margin-top: 1em;"> <label for="JD4_1"> Mejor</label><br>
+        <input type="radio" name="JD4" id="JD4_2" value="Igual" > <label for="JD4_2"> Igual</label><br>
+        <input type="radio" name="JD4" id="JD4_3" value="Peor" > <label for="JD4_3"> Peor</label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions">
+        <table class="blueTable">
+            <tbody>
+                <tr>
+                    <td colspan="5" style="text-align: justify; padding: 0.5em;">Ahora le vamos a hacer varias preguntas sobre usted y cómo se siente. Indique en la escala: nunca, raramente, algunas veces o siempre.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Nunca</td>
+                    <td>Raramente</td>
+                    <td>Algunas Veces</td>
+                    <td>Siempre</td>
+                </tr>
+                {% for id, preg in mult %}
+                <tr>
+                    <td style="text-align: justify;height: 4em;padding: 1em;">{{ preg }}</td>
+                    {% for n in opciones %}
+                    <td style="width: 10%;">
+                        <input name="JD{{ id }}" type="radio" value={{ n }}>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    {% next_button %}
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+    table.blueTable {
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        margin-bottom: 3%;
+    }
+
+    table.blueTable td,
+    table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+    }
+
+    table.blueTable tbody td {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    table.blueTable thead {
+        background: #409cff;
+        background: -moz-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: -webkit-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: linear-gradient(to bottom, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        border-bottom: 2px solid #444444;
+        text-align: justify;
+
+    }
+
+    table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        border-left: 2px solid #D0E4F5;
+    }
+
+    table.blueTable thead th:first-child {
+        border-left: none;
+    }
+
+    table.blueTable tfoot td {
+        font-size: 14px;
+    }
+
+    table.blueTable tfoot .links {
+        text-align: right;
+    }
+
+    table.blueTable tfoot .links a {
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+
+    .card{
+        margin-top: 1em;
+        padding: 1em;
+    }
+</style>
+{% endblock %}

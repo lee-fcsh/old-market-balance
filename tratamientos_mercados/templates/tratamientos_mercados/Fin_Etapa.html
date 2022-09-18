@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados de la etapa de entrenamiento
+{% endblock %}
+
+{% block content %}
+    <div align='center' style="font-weight: bold; text-decoration: underline;margin-top: 5em;margin-bottom: 5em;">
+        <p style="font-size: 2em;">
+            La etapa 1 de entrenamiento ha finalizado. A continuación, de click en siguiente para empezar con la etapa 2.
+        </p>
+    </div>
+    <div align="center">
+        {% next_button %}
+
+    </div>
+{% endblock %}

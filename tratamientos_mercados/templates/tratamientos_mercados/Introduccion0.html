@@ -1,0 +1,82 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %} ETAPA 2 {% endblock %}
+
+{% block content %}
+
+<div class="card-body">
+    <div class="card bg-light instructions" style="padding: 1em;text-align: justify;">
+        <p>
+            En la etapa 2 usted jugará 10 rondas de negociación bajo la misma estructura de decisiones propuesta en la
+            etapa 1. <br><br> 
+            <b>Las ganancias acumuladas de cada ronda en esta etapa forman parte de las ganancias totales
+            del experimento.<br><br></b> 
+
+            <b>Usted mantendrá el mismo rol asignado en todas las rondas. {{texto1}}</b>
+            <br><br>
+            Todas las rondas de negociación de esta etapa <b>incluyen la opción de renegar la transacción.</b><br> <br>
+
+            Además de las decisiones previas, en esta etapa usted tendrá la oportunidad de <b>CONTRATAR UN MEDIADOR,</b>
+            cuyo rol se describe a continuación. <br><br>
+        </p>
+    </div>
+    <br>
+    <div class="card bg-light instructions" style="padding: 1em;text-align: justify;">
+        <div>
+            <h3>
+                ROL DEL MEDIADOR
+            </h3>
+        </div>
+        <hr>
+        <div>
+            <div>
+                <p>
+                    La opción de <b>CONTRATAR UN MEDIADOR</b> le permite, <b>a cualquiera de las dos partes (vendedor o
+                        comprador), GARANTIZAR</b> el cumplimiento de la transacción de la contraparte y <b>REDUCIR SUS
+                        GANANCIAS</b>
+                    en caso reniegue la transacción en una ronda de negociación. <br><br>
+
+                    <b>Por ejemplo:</b> suponga que en una ronda de negociación, un vendedor y un comprador deciden
+                    hacer una
+                    transacción, con un nivel de precio <b>P. Antes de que los participantes decidan <u>renegar</u> o <u>completar</u>
+                        la
+                        transacción,</b> cada participante observará la siguiente pantalla:
+
+                </p>
+            </div>
+            <hr>
+            <div align='center'>
+                <img src="{% static 'img\mediador.png' %}" style="width: 40%;">
+            </div>
+            <div align='center'>
+                <table class="table table-bordered text-center" style="margin-top: 2em;width: 50%;">
+                    <tbody>
+                        <tr>
+                            <td class="table-active"><b>Costo de contratación</b></td>
+                            <td> {{texto3}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div>
+                <p>
+                    Note que la decisión de contratar al mediador <b>se toma de manera simultánea</b> y no se revela
+                    hasta que se efectivicen los resultados de la negociación. Asimismo, <b>SI UN PARTICIPANTE DECIDE
+                        CONTRATAR UN MEDIADOR, NO PUEDE RENEGAR SU LADO DE LA TRANSACCIÓN.</b>
+                </p>
+                <p>
+                    {{texto2}}
+                </p>
+                <p>
+                    Si un participante decide <b>RENEGAR</b> la transacción (y por lo tanto no contrata un mediador)
+                    pero la contraparte decidió <b>CONTRATAR</b> un mediador, las ganancias del participante <b>SE REDUCEN</b> en $ d*c (en donde d>1).
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+{% next_button %}
+{% endblock %}

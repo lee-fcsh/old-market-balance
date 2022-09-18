@@ -1,0 +1,57 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Etapa 3 – Sección 2
+{% endblock %}
+
+{% block content %}
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">GANANCIAS EN LA RONDA</h5>
+                <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% include Constants.template_jugadores %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card bg-light instructions" style="text-align: justify;padding: 1em;">
+    <p>
+
+        La sección 2 corresponde al mismo escenario de la sección 1. <b>La diferencia, en esta sección, es que los roles
+            han cambiado y ahora, el jugador A de la sección 1 es el jugador B de la sección 2 y viceversa.</b> Por
+        ejemplo, si
+        usted fue el jugador A en la sección 1, entonces, ahora usted será el jugador B en esta sección. Por ende, su
+        compañero, que fue el jugador B en la sección 1, en esta sección será el jugador A. <br><br>
+        <b>Cabe resaltar que el jugador
+        emparejado con usted sigue siendo el mismo de la sección anterior.</b><br><br> Si no recuerda las instrucciones de la sección previa, a continuación puede darle click
+        al boton para recordarlas <br>
+
+        <div align='center'>
+            <button type="button" id="first_btn" class="btn btn-info" data-toggle="modal"
+            data-target=".bd-example-modal-lg">
+            Instrucciones - Seccion 1
+        </button>
+        </div>
+
+        
+        <hr>
+
+        Si tiene alguna duda, por favor levante la mano y el asistente del experimento se acercará a usted para
+        responderle. Si no tiene dudas, por favor de click en siguiente. <br><br>
+
+    </p>
+</div>
+
+<br>
+{% next_button %}
+{% endblock %}

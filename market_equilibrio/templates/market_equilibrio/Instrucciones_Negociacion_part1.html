@@ -1,0 +1,61 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %} FASE 2: Opciones de negociación {% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions" style="padding: 1em;text-align: justify; margin-bottom: 2em;">
+    <div>
+        <p>
+            En la fase 2, además de participar en el mercado de subastas con el rol asignado: <b>Vendedor o
+                Comprador</b>, y
+            tener la oportunidad de concretar transacciones a un precio <b>P</b> bajo las reglas de juego previas, usted
+            ahora
+            tendrá la oportunidad de <b>renegar su lado de la transacción</b>. A continuación, se detallan las
+            características
+            de la fase 2.
+        </p>
+    </div>
+    <hr>
+    <div>
+        <div>
+            <h3>
+                RENEGAR LA TRANSACCIÓN
+            </h3>
+        </div>
+        <br>
+        <div>
+            <div>
+                <p>
+                    La opción de <b>renegar la transacción</b> le permite, <b>a cualquiera de las dos partes (vendedor o
+                        comprador)</b>
+                    que han decidido concretar una transacción, a un precio <b>P, negarse</b> a completar su parte de la
+                    negociación. <br><br>
+
+                    Note que, si un participante se niega a completar su lado de la transacción, todavía puede obtener
+                    los
+                    beneficios de la misma si su contraparte decide completar su lado de la transacción. <br><br>
+
+                    <b>Por ejemplo:</b> suponga que en una ronda de negociación, un vendedor y un comprador deciden
+                    hacer una
+                    transacción con un nivel de precio <b>P</b>. A continuación aparecerá la siguiente pantalla:
+                </p>
+            </div>
+            <hr>
+            <div align='center'>
+                <img src="{% static 'img\renegar.png' %}" style="width: 40%;">
+            </div>
+            <hr>
+            <div>
+                <p>
+                    Note que la decisión de renegar la transacción <b>se toma de manera simultánea</b> y no se revela
+                    hasta que las dos partes hayan tomado su decisión.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+{% next_button %}
+{% endblock %}

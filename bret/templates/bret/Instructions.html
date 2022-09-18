@@ -1,0 +1,140 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    {{ titulo }}
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% if session.config.name == 'Sesion_bienes_publicos' %}
+                            <p>
+                                Las siguientes instrucciones corresponden a la sección 2 y en ellas se describe cómo puede ganar dinero. Por favor léalas
+                                cuidadosamente.
+                            </p>
+                        {% endif %}
+                        <p>
+                            A continuación, en la pantalla aparecerá una matriz 8x8 que contiene
+                            <b>64 cajas en total</b>.
+                        </p>
+                        <p>
+                            Tan pronto como inicie la tarea, dando clic en el botón
+                            <b>"Inicio",</b> una caja se recopilará automáticamente cada segundo, de manera aleatoria. Cada caja marcada con el
+                            símbolo
+                            <b>"visto"</b> [
+                            <img class="img-responsive" alt="..." src="/static/bret/icono.jpg" />] será recolectada.
+                        </p>
+                        <p>
+                            <b>Detrás de una de las 64 cajas se esconde UNA BOMBA que destruye todo lo que se ha recogido</b>.
+                            <P> De las 63 restantes, cada caja recolectada vale US$ {{ box_value|floatformat:2 }}. Usted no sabe en dónde está la bomba; esta puede estar
+                                en cualquier caja con la misma probabilidad (1/64).
+                        </p>
+                    
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <p class="text-center formula">
+                                    <b>1 caja recogida = US$ {{ box_value|floatformat:2 }}</b>
+                                </p>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="horizontal">
+                            <div class="vertical">
+                                <img class="img-responsive" alt="..." src="/static/bret/bret.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>SUS DECISIONES:</h4>
+                    <P>
+                        <b>Su tarea es elegir cuándo detener el proceso de recolección de cajas </b>. Usted lo hará dando clic en el boton
+                        <b>"Parar"</b> en cualquier momento.
+                    </p>
+                    <p>
+                        <b>Si usted recoge la caja en donde se encuentra LA BOMBA</b>, esta explotará y usted perderá todo lo recogido (gana
+                        US$ 0). Si usted detiene el proceso antes de recoger la bomba, ganará la cantidad acumulada hasta ese momento.</p>
+            
+                    <p>
+                        Una vez de clic en
+                        <b>"Parar,"</b> se habilitará el botón
+                        <b>"Mostrar"</b> que le permitirá observar el contenido de las cajas recolectadas.
+                    </p>
+                    <p>
+                        <b>Usted realizará 3 rondas de esta tarea</b>.
+                    </p>
+                </div>   
+                <br> 
+                <h4>SUS GANANCIAS:</h4>
+                <div class="row">
+                    
+                    <p>
+                        Se elegirá de forma aleatoria una de las tres rondas.
+                    </p>
+                    <p>
+                        <b>El pago</b>, resultado de la ronda elegida, se sumará automáticamente al monto total que usted recibirá al finalizar
+                        la sesión.
+                    </p>
+                    <br>
+                    <p>Si no tiene preguntas, por favor de clic en
+                        <b>Siguiente</b> para continuar.</p>
+                </div>
+                <div class="row">
+                    {% next_button %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block styles %}
+    <style type="text/css">
+
+        .row {
+            margin: 0 auto;
+        }
+
+        .formula{
+            padding: 1%;
+            text-align: center;
+            background: bisque;
+            border: solid;
+            width: 100%;
+            font-size: 1.2em;
+        }
+        div.horizontal {
+            display: flex;
+            justify-content: center;
+        }
+        div.vertical {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .page-header{
+            margin-top: 0;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+    <p>El jugador ganador se encuentra en la máquina {{ maquina }}.</p>
+    <p>La decisión seleccionada aleatoriamente es la {{ op }} .</p>
+    <p>
+            Por lo tanto, se le pagará <b> US$ {{ pago|json }}</b>
+            en un tiempo de {{ plazo }}.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

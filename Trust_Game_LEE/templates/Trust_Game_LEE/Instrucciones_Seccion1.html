@@ -1,0 +1,72 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Etapa 3 – Sección 1
+{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions" style="text-align: justify;padding: 2em; margin-bottom: 2em;">
+    <p>
+        La etapa 3 tiene 2 secciones. Las instrucciones descritas a continuación corresponden a la sección 1. <br><br>
+        En esta sección usted será emparejado aleatoriamente con otro participante de la sesión. A cada jugador se le
+        asigna, aleatoriamente, uno de dos posibles roles: A o B. La decisión de cada jugador depende del rol asignado.
+        <br><br>
+
+        <table>
+            <tr>
+                <td style="width: 50%;">
+                    <div class="alert alert-info" style="height: 13em">
+                        <b> Jugador A </b><br><br>
+                        El jugador A recibe una dotación inicial de 20 ecus. <b>La decisión del jugador A es fijar una cantidad X,
+                            entre 0
+                            y 20 ecus, según sus preferencias, que desea enviar al jugador B.</b> <br><br>
+                    </div>
+                </td>
+                <td style="width: 50%;">
+                    <div class="alert alert-info" style="height: 13em">
+                        <b> Jugador B </b><br><br>
+                        <b>El jugador B debe esperar la decisión del jugador A.</b> Una vez el jugador A decide la cantidad X a enviar, el
+                        jugador B <b>recibe dos veces dicha cantidad (2X).</b> Por ejemplo, si el jugador A decide enviar 8 ecus, el
+                        jugador B recibe 16 ecus. <br><br>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        
+
+
+        Luego de recibir la cantidad de ecus correspondiente, <b>la decisión del jugador B consiste en fijar una
+            cantidad Y, entre 0 y 2X, que desea devolver al jugador A.</b>
+        <hr>
+        <h3>Pagos</h3><br>
+        
+        <table>
+            <tr>
+                <td style="width: 50%;">
+                    <div class="alert alert-info" style="height: 7em">
+                        <b>Jugador A:</b> El pago del jugador A corresponde a la dotación inicial, menos la cantidad que envía al
+                        jugador B, y más la cantidad que él le devuelve (20-X+Y ecus).
+                    </div>
+                </td>
+                <td style="width: 50%;">
+                    <div class="alert alert-info" style="height: 7em">
+                        <b>Jugador B:</b> El pago del jugador B corresponde al envío del jugador A multiplicado por dos, menos lo
+                        que decide devolverle (2X – Y ecus).
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        El pago de esta sección se sumará con las ganancias de las demás etapas y formarán parte del pago
+        final de la sesión. <br><br>
+        Si tiene alguna duda, por favor levante la mano y el asistente del experimento se acercará a usted para
+        responderle. Si no tiene dudas, por favor de click en siguiente. <br>
+
+    </p>
+</div>
+
+{% next_button %}
+{% endblock %}

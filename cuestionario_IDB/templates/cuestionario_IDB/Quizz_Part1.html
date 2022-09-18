@@ -1,0 +1,162 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    1. Confianza institucional
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="card bg-light instructions">
+        <div align="center"><b>Preguntas</b></div>
+        <p style="text-align: justify;">
+            Ahora vamos a hacerle algunas preguntas sobre la confianza en las instituciones. <br>
+            En las siguientes preguntas, indicará sus respuestas en una escala del 1 al 10. Comencemos con la confianza
+            en las instituciones. El 1 significa NADA. El 10 significa MUCHA. <br>
+        </p>
+    </div>
+    <div class="card bg-light instructions" style="margin-top: 1em;">
+        <div class="col-md-12">
+            <table class="blueTable">
+                <tbody>
+                    <thead style="margin-top: 5em;">
+                        <th style="width: 60%;height: 2em;" > </th>
+                        {% for op in opciones %}
+                        <th style="width: 4%; text-align: center;height: 2em;">{{ op }}</th>
+                        {% endfor %}
+                    </thead>
+                </tbody>
+            </table>
+            {% for id, preg in mult %}
+            {% if id == 9 %}
+        </div>
+    </div>
+    <p class="card bg-light instructions"
+        style="padding: 1em;text-align: justify;margin-top: 2.5em;margin-bottom: 2em;">
+        A continuación, estamos interesados en conocer si usted cree que es común que las instituciones
+        públicas piensen en usted y en los intereses de gente como usted. Por favor, lea las alternativas y
+        marque una sola respuesta para cada ítem. El 1 significa NADA COMÚN. El 10 significa MUY COMÚN.
+    </p>
+
+    <div class="card bg-light instructions">
+        <div class="col-md-12">
+            <table class="blueTable">
+                <tbody>
+                    <thead style="margin-top: 5em;">
+                        <th style="width: 60%;" > </th>
+                        {% for op in opciones %}
+                        <th style="width: 4%; text-align: center;">{{ op }}</th>
+                        {% endfor %}
+                    </thead>
+                </tbody>
+            </table>
+
+            {% endif %}
+            <table class="blueTable">
+                <tbody>
+                    
+                    <tr>
+                        <td style="width: 60%;font-size: 1em;">
+                            {{ preg }}
+                        </td>
+                        {% for op in opciones %}
+                        <td style="width: 4%;">
+                            <input name="CI{{ id }}" type="radio" value={{ op }}>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em; margin-top: .5em;">
+        <p><b> La última vez que tuvo que ir a un hospital, ¿fue a un hospital público o privado?</b><br>
+        <input type="radio" name="CI18" id="CI18_1" value="Publico" style="margin-top: 1em;"> <label for="CI18_1"> Público</label><br>
+        <input type="radio" name="CI18" id="CI18_2" value="Privado" > <label for="CI18_2"> Privado</label><br>
+        <input type="radio" name="CI18" id="CI18_3" value="Nunca he tenido que ir a un hospital" > <label for="CI18_3"> Nunca he tenido que ir a un hospital</label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em; margin-top: .5em;">
+        <p><b> Si tiene actualmente hijo/a(s) matriculado/a(s) en la escuela, ¿lo/a(s) ha matriculado en una escuela pública o privada? Si tiene hijos en escuela pública y en escuela privada, marque las dos opciones:</b><br>
+        <input type="checkbox" name="CI19" id="CI19_1" value="Publico" style="margin-top: 1em;"> <label for="CI19_1"> Público</label><br>
+        <input type="checkbox" name="CI19" id="CI19_2" value="Privado" > <label for="CI19_2"> Privado</label><br>
+        <input type="checkbox" name="CI19" id="CI19_3" value="No tengo hijo/a en la escuela" > <label for="CI19_3"> No tengo hijo/a en la escuela </label><br>
+        </p>
+    </div>
+
+    <div class="card bg-light instructions" style="padding: 1em; margin-top: .5em;">
+        <p><b> ¿En su casa tiene algún tipo de seguridad privada, como servicio de alarma con respuesta, monitoreo por cámaras o guardia?</b><br>
+        <input type="radio" name="CI20" id="CI20_1" value="Si" style="margin-top: 1em;"> <label for="CI20_1"> Si</label><br>
+        <input type="radio" name="CI20" id="CI21_2" value="No" > <label for="CI20_2"> No</label><br>
+        </p>
+    </div>
+
+
+</div>
+
+{% next_button %}
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+    table.blueTable {
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+/*         margin-bottom: 3%; */
+    }
+
+    table.blueTable td,
+    table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+    }
+
+    table.blueTable tbody td {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    table.blueTable thead {
+        background: #409cff;
+        background: -moz-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: -webkit-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: linear-gradient(to bottom, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        border-bottom: 2px solid #444444;
+        text-align: justify;
+
+    }
+
+    table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        border-left: 2px solid #D0E4F5;
+    }
+
+    table.blueTable thead th:first-child {
+        border-left: none;
+    }
+
+    table.blueTable tfoot td {
+        font-size: 14px;
+    }
+
+    table.blueTable tfoot .links {
+        text-align: right;
+    }
+
+    table.blueTable tfoot .links a {
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}

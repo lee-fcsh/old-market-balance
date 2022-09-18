@@ -1,0 +1,119 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Decisión
+{% endblock %}
+
+{% block content %}
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">
+    Ver Instrucciones
+</button>
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Instruciones</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            {% include Constants.intructions_template %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-striped greyGridTable">
+        <thead>
+          <th></th>
+          <th style="border-left:hidden;">Opción A</th>
+          <th colspan="3" >Elección</th>
+          <th >Opción B</th>
+        </thead>
+        <thead>
+          <th>Decisión</th>
+          <th>7 días a partir de hoy</th>
+          {% for op in opciones %}
+            <th>{{ op }}</th>
+          {% endfor %}
+          <th>7 días + 2 meses a partir de hoy</th>
+        </thead>
+        <tbody>
+          {% for ind, val_A, val_B in mult %}
+            <tr>
+              <td>{{ ind }}</td>
+              <td>US$ {{ val_A }}</td>
+              {% for op in opciones %}
+              <td >
+                  <input name="dec_{{ ind }}" type="radio" value={{ op }} required>                       
+              </td>
+              {% endfor %}
+              <td> US$ {{ val_B }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  {% next_button %}
+    
+{% endblock %}
+
+
+{% block styles %}
+    <style type="text/css">
+
+    table.greyGridTable {
+      border: 2px solid #FFFFFF;
+      width: 100%;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    table.greyGridTable td, table.greyGridTable th {
+      border: 1px solid #FFFFFF;
+      padding: 10px 4px;
+    }
+    table.greyGridTable tbody td {
+      font-size: 16px;
+    }
+    table.greyGridTable td:nth-child(even) {
+      background: #EBEBEB;
+    }
+    table.greyGridTable thead {
+      background: #FFFFFF;
+      border-bottom: 4px solid #333333;
+    }
+    table.greyGridTable thead th {
+      font-size: 15px;
+      font-weight: bold;
+      color: #333333;
+      text-align: center;
+      border-left: 2px solid #333333;
+    }
+    table.greyGridTable thead th:first-child {
+      border-left: none;
+    }
+    
+    table.greyGridTable tfoot {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333333;
+      border-top: 4px solid #333333;
+    }
+    table.greyGridTable tfoot td {
+      font-size: 14px;
+    }
+    </style>
+{% endblock %}
+
+
+

@@ -1,0 +1,194 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+OPCIONES DE NEGOCIACIÓN
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        {% if player.role == 'vendedor' %}
+        <p class="text-justify">
+            <b>Usted es Vendedor</b>
+        </p>
+        {% else %}
+        <p class="text-justify">
+            <b>Usted es Comprador</b>
+        </p>
+        {% endif %}
+
+
+    <div style="width: 100%; margin-bottom: 2em;">
+        <div>
+            <div style="margin-top: 1em;">
+                <div style="width: 49%;float: left;margin-right: 2%;margin-bottom: 2em;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card text-white bg-info mb-3" style="height: 13em;">
+                                <div class="card-header" style="text-transform: uppercase;text-align: center;"><b>{{ player.role }}</b></div>
+                                <div class="card-body" style="padding: 0%;">
+                                    <div class="col-sm-6" style="float: left;">
+                                        <div class="card text-white bg-info mb-3" style="max-width: 18rem; height: 10em;">
+                                            {% if player.role == 'vendedor' %}
+                                            <div class="card-header" style="font-size: .86em;text-align: center;"><b>Costo de Producción</b></div>
+                                            {% else %}
+                                            <div class="card-header" style="font-size: .86em;text-align: center;"><b>Presupuesto (Valor asignado)</b></div>
+                                            {% endif %}
+                                            <div class="card-body">
+                                                <h1 class="display text-center" style="font-size: 3em;">{{player.carta}}</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="float: left;">
+                                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;height: 10em;">
+                                            <div class="card-header" style="font-size: .91em;text-align: center;"><b>Tipo de comprador</b></div>
+                                            <div class="card-body">
+                                                <h1 class="display text-center" style="font-size: 3em;">{{player.tipo_valor}}</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div style="width: 49%;float: right;margin-bottom: 10em;">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr class="table-active" style="height: 5em;">
+                                <th colspan="2" style="vertical-align: inherit;">DATOS DE LA CONTRAPARTE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="height: 4em;">
+                                <td class="table-active" style="vertical-align: inherit;">Tipo de agente</td>
+                                <td style="vertical-align: inherit;">{{agente_contraparte}}</td>
+                            </tr>
+                            <tr style="height: 4em;">
+                                <td class="table-active" style="vertical-align: inherit;">Precio de la transacción</td>
+                                <td style="vertical-align: inherit;">{{player.valor_venta}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div>
+            Su decisión es:
+        </div>
+        <table class="table table-bordered" style="width: 50%;margin-top: 1em;margin-left: 15%;">
+            <tr>
+                <td> <label for="aceptar_proceso1"> Contratar mediador</label></td>
+                <td style="text-align: center;"><label class="container" for="aceptar_proceso1">
+                <input type="radio" name="abogado" id="aceptar_proceso1" value="Si">
+                <span class="checkmark"></span>
+                </label></td>
+            </tr>
+            <tr>
+                <td> <label for="aceptar_proceso2"> No contratar mediador </label></td>
+                <td style="text-align: center;"><label class="container" for="aceptar_proceso2">
+                <input type="radio" name="abogado" id="aceptar_proceso2" value="No"><span class="checkmark"></span>
+                </label></td>
+            </tr>
+        </table>
+
+        <table class="table table-bordered text-center" style="margin-top: 2em;">
+            <tbody>
+                <tr>
+                    <td class="table-active"><b>Costo de contratación</b></td>
+                    <td> {{costo_abogado|floatformat:2}} puntos</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+{% next_button %}
+
+{% endblock %}
+
+
+
+{% block styles %}
+<style>
+    /* Customize the label (the container) */
+    .container {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        right: .7em;
+        bottom: .5em;
+        top: .3em;
+    }
+
+    /* Hide the browser's default radio button */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        /* top: 0;
+        left: 0; */
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 20%;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input~.checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the radio button is checked, add a blue background */
+    .container input:checked~.checkmark {
+        background-color: #2196F3;
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked~.checkmark:after {
+        display: block;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .container .checkmark:after {
+        top: 7px;
+        left: 7px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: white;
+    }
+
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 0rem!important;
+}
+</style>
+{% endblock %}

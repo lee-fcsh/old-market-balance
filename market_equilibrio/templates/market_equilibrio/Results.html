@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+    <div>
+        <table class="table table-hover text-center">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col"></th>
+                    <th scope="col">SUS DECISIONES</th>
+                    <th scope="col">LAS DECISIONES DE LA CONTRAPARTE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% if player.role == "vendedor" %}
+                    <td style="font-weight: bold;">Costo de producción (Valor asignado)</td>
+                    {% else %}
+                    <td style="font-weight: bold;">Presupuesto (Valor asignado)</td>
+                    {% endif %}
+                    <td> {{ player.carta}} </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Precio acordado</td>
+                    {% if player.valor_venta == 0 %}
+                    <td> </td>
+                    <td> </td>
+                    {% else %}
+                    <td> {{player.valor_venta}} </td>
+                    <td> {{player.valor_venta}} </td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Tipo de agente</td>
+                    <td> {{player.tipo_valor}} </td>
+                    <td> {{agente_contraparte}} </td>
+                </tr>
+                {% if ronda > 3 %}
+                <tr>
+                    <td>Renegar</td>
+                    <td> {{ renegar }} </td>
+                    <td> {{renegar_contraparte}} </td>
+                </tr>
+                {% endif %}
+                <tr class="table-success">
+                    <td>Ganancias en esta ronda</td>
+                    <td> {{ganancia|floatformat:2}} </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {% next_button %}
+{% endblock %}
+
+

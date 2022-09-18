@@ -1,0 +1,12 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %} FASE 2: Opciones de negociación {% endblock %}
+
+{% block content %}
+<div class="card bg-light instructions" style="padding: 1em;text-align: justify;margin-bottom: 2em;">
+    {% include Constants.ganancias_template %}
+</div>
+    
+
+{% next_button %}
+{% endblock %}

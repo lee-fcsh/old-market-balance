@@ -1,0 +1,170 @@
+{% load otree static staticfiles otree_tags %}
+
+{% block content %}
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">GANANCIAS EN LA RONDA</h5>
+                <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% include Constants.ganancias_template2 %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card-body">
+    <div>
+        <h3>
+            GANANCIAS EN LA RONDA
+        </h3>
+        <hr>
+        <div>
+            <div>
+                <p>
+                    Las ganancias en cada ronda dependen de sus decisiones y las de su contraparte y se calculan de la
+                    siguiente forma:
+                </p>
+            </div>
+            <table id="table_ganancias">
+                <tr>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 12em;">
+                            <ul>
+                                <li>Si ninguna de las partes decide contratar un mediador, entonces ambos participantes
+                                    tendrán que decidir si renegar o aceptar la transacción y las ganancias se determinan de
+                                    igual manera que en la fase 2 de entrenamiento</li>
+                                <br>
+                                Si no recuerda la forma de calcular las ganancias, de clic
+                                <button type="button" id="first_btn" class="btn btn-info" data-toggle="modal"
+                                    data-target=".bd-example-modal-lg">
+                                    Aqui
+                                </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 12em;">
+                            <li>Si el vendedor decide <b>CONTRATAR</b> al mediador, y el comprador decide <b>NO CONTRATAR pero
+                                    RENEGAR,</b>
+                                entonces la transacción se realiza y las ganancias serán:</li>
+    
+                            <div>
+                                <div style="padding: 1em;">
+                                    <b>
+                                        GANANCIA DEL VENDEDOR: P – COSTO DE PRODUCCIÓN - c <br>
+                                        GANANCIA DEL COMPRADOR: PRESUPUESTO – P – d*c
+    
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 12em;">
+                            <li>Si el vendedor decide <b>CONTRATAR</b> al mediador, y el comprador decide <b>NO CONTRATAR Y NO
+                                    RENEGAR,</b>
+                                entonces la transacción se realiza y las ganancias serán:</li>
+                            <div>
+                                <div style="padding: 1em;">
+                                    <b>
+                                        GANANCIA DEL VENDEDOR: P – COSTO DE PRODUCCIÓN - c <br>
+                                        GANANCIA DEL COMPRADOR: PRESUPUESTO – P
+        
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div s class="alert alert-info" style="width: 100%;padding-right: 2em;height: 12em;">
+                            <li>Ahora, si el comprador decide <b>CONTRATAR</b> al mediador, y el vendedor decide <b>NO CONTRATAR
+                                    pero
+                                    RENEGAR,</b> entonces la transacción se realiza y las ganancias serán:</li>
+                            <div style="padding: 1em;">
+                                <b>
+                                    GANANCIA DEL COMPRADOR: PRESUPUESTO – P - c <br>
+                                    GANANCIA DEL VENDEDOR: P – COSTO DE PRODUCCIÓN – d*c
+        
+                                </b>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 12em;">
+                            <li>Asimismo, si el comprador decide <b>CONTRATAR</b> al mediador, y el vendedor decide <b>NO
+                                    CONTRATAR
+                                    Y NO RENEGAR,</b> entonces la transacción se realiza y las ganancias serán:</li>
+                            <div style="padding: 1em;">
+                                <b>
+                                    GANANCIA DEL COMPRADOR: PRESUPUESTO – P - c <br>
+                                    GANANCIA DEL VENDEDOR: P – COSTO DE PRODUCCIÓN
+        
+        
+                                </b>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alert alert-info" style="width: 100%;padding-right: 2em;height: 12em;">
+                            <li>Finalmente, si ambas partes (comprador y vendedor) deciden <b>CONTRATAR</b> al mediador,
+                                entonces la transacción se realiza y las ganancias serán:</li>
+                            <div style="padding: 1em;">
+                                <b>
+                                    GANANCIA DEL VENDEDOR: P – COSTO DE PRODUCCIÓN - c <br>
+                                    GANANCIA DEL COMPRADOR: PRESUPUESTO – P - c
+        
+        
+                                </b>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                
+                </ul>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <p>
+            Las ganancias totales de la Etapa 2 serán la suma de las ganancias de las 10 rondas de negociación. <br><br>
+
+            Si tiene alguna duda, levante la mano y el encargado de la sesión se acercará para responderle.
+            <br><br>
+
+            De clic en SIGUIENTE para iniciar.
+        </p>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+<style>
+.otree-body{
+    max-width: 90%;
+}
+
+#table_ganancias{
+    width: 105%;
+    border-collapse: separate;
+    border-spacing: 10px 0px;
+    margin-left: -2.5%;
+}
+
+#table_ganancias td{
+    width: 50%;
+}
+</style>

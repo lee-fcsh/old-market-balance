@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Etapa 3
+{% endblock %}
+
+{% block content %}
+
+<table class="table table-bordered text-justify" style="width: 50%;">
+    <tbody>
+        <tr>
+            <td class="table-active">Usted es el participante</td>
+            <td> <strong>A</strong></td>
+        </tr>
+        <tr>
+            <td class="table-active">Su dotación inicial es de:</td>
+            <td><b>{{Constants.dotacion_inicial}}.</b></td>
+        </tr>
+    </tbody>
+</table>
+
+    {% formfields %}
+
+{% next_button %}
+
+{% endblock %}

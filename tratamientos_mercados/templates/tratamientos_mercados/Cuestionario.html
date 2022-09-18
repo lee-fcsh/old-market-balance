@@ -1,0 +1,249 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+TEST DE COMPRENSIÓN
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <ol>
+        <div>
+            <li>Suponga un comprador con un presupuesto de 8 y un vendedor con un costo de producción de 4. Ambos
+                acuerdan una transacción con un nivel de precio de 7, entonces las ganancias serán: </li>
+            <div style="margin-top: 2em; margin-bottom: 3em;">
+                <table class="table table-hover text-justify">
+                    <tr>
+                        <td>
+                        <label class="container" for="pregunta11"> Comprador 1 y Vendedor 3
+                        <input type="radio" name="pregunta1" id="pregunta11" value="Comprador 1 y Vendedor 3">
+                        <span class="checkmark"></span>
+                        </label></td>
+
+                        <td>
+                        <label class="container" for="pregunta13"> Comprador 4 y Vendedor 3
+                        <input type="radio" name="pregunta1" id="pregunta13" value="Comprador 4 y Vendedor 3">
+                        <span class="checkmark"></span>
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <label class="container" for="pregunta12"> Comprador 3 y Vendedor 1
+                        <input type="radio" name="pregunta1" id="pregunta12" value="Comprador 3 y Vendedor 1">
+                        <span class="checkmark"></span>
+                        </label></td>
+
+                        <td>
+                        <label class="container" for="pregunta14">Comprador 3 y Vendedor 4
+                        <input type="radio" name="pregunta1" id="pregunta14" value="Comprador 3 y Vendedor 4">
+                        <span class="checkmark"></span>
+                        </label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div>
+            <li>Suponga un comprador con un presupuesto de 8 y un vendedor con un costo de producción de 4.
+                Luego de acordar completar una transacción con un precio de 7, ambos reniegán, ¿qué
+                sucederá?</li>
+
+                <div style="margin-top: 2em; margin-bottom: 3em;">
+                    <table class="table table-hover text-justify">
+                        <tr>
+                            <td>
+                            <label class="container" for="pregunta21"> No se realiza la transacción, ambos ganan 0 y se pasa a la siguiente ronda.
+                            <input type="radio" name="pregunta2" id="pregunta21" value="No se realiza la transacción, ambos ganan 0 y se pasa a la siguiente ronda.">
+                            <span class="checkmark"></span>
+                            </label></td>
+    
+                            <td>
+                            <label class="container" for="pregunta23"> Se realiza la transacción, el comprador recibe el bien pero no paga el precio.
+                            <input type="radio" name="pregunta2" id="pregunta23" value="Se realiza la transacción, el comprador recibe el bien pero no paga el precio.">
+                            <span class="checkmark"></span>
+                            </label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <label class="container" for="pregunta22"> Se realiza la transacción con el precio establecido.
+                            <input type="radio" name="pregunta2" id="pregunta22" value="Se realiza la transacción con el precio establecido.">
+                            <span class="checkmark"></span>
+                            </label></td>
+    
+                            <td>
+                            <label class="container" for="pregunta24"> Se realiza la transacción, el vendedor recibe el precio pero no entrega el bien.
+                            <input type="radio" name="pregunta2" id="pregunta24" value="Se realiza la transacción, el vendedor recibe el precio pero no entrega el bien.">
+                            <span class="checkmark"></span>
+                            </label></td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+
+
+        <div>
+            <li>Suponga un comprador con un presupuesto de 7 y un vendedor con un costo de producción de 5. Si el
+                comprador, luego de acordar una transacción con un precio de 6, decide renegar la transacción, mientras
+                que el vendedor decide completarla, las ganancias serán:</li>
+            
+                <div style="margin-top: 2em; margin-bottom: 3em;">
+                    <table class="table table-hover text-justify">
+                        <tr>
+                            <td>
+                            <label class="container" for="pregunta31"> Comprador 1 y Vendedor 1
+                            <input type="radio" name="pregunta3" id="pregunta31" value="Comprador 1 y Vendedor 1">
+                            <span class="checkmark"></span>
+                            </label></td>
+    
+                            <td>
+                            <label class="container" for="pregunta33"> Comprador -1 y Vendedor 6
+                            <input type="radio" name="pregunta3" id="pregunta33" value="Comprador -1 y Vendedor 6">
+                            <span class="checkmark"></span>
+                            </label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <label class="container" for="pregunta32"> Comprador 7 y Vendedor -5
+                            <input type="radio" name="pregunta3" id="pregunta32" value="Comprador 7 y Vendedor -5">
+                            <span class="checkmark"></span>
+                            </label></td>
+    
+                            <td>
+                            <label class="container" for="pregunta34">No se realiza la transacción
+                            <input type="radio" name="pregunta3" id="pregunta34" value="No se realiza la transacción">
+                            <span class="checkmark"></span>
+                            </label></td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+
+
+        <div>
+            <li>
+                Suponga un comprador con un presupuesto de 10 y un vendedor con un costo de producción de 5. Si el
+                vendedor, luego de acordar una transacción con un precio de 8, decide renegar la transacción, mientras que
+                el comprador decide completarla, las ganancias serán:
+            </li>
+
+            <div style="margin-top: 2em; margin-bottom: 3em;">
+                <table class="table table-hover text-justify">
+                    <tr>
+                        <td>
+                        <label class="container" for="pregunta41"> Comprador 10 y Vendedor -5
+                        <input type="radio" name="pregunta4" id="pregunta41" value="Comprador 10 y Vendedor -5">
+                        <span class="checkmark"></span>
+                        </label></td>
+
+                        <td>
+                        <label class="container" for="pregunta43"> Comprador -10 y Vendedor 5
+                        <input type="radio" name="pregunta4" id="pregunta43" value="Comprador -10 y Vendedor 5">
+                        <span class="checkmark"></span>
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <label class="container" for="pregunta42"> Comprador -8 y Vendedor 8
+                        <input type="radio" name="pregunta4" id="pregunta42" value="Comprador -8 y Vendedor 8">
+                        <span class="checkmark"></span>
+                        </label></td>
+
+                        <td>
+                        <label class="container" for="pregunta44">No se realiza la transacción
+                        <input type="radio" name="pregunta4" id="pregunta44" value="No se realiza la transacción">
+                        <span class="checkmark"></span>
+                        </label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </ol>
+</div>
+{% next_button %}
+{% endblock %}
+
+
+
+{% block styles %}
+<style>
+    table {
+        margin-top: 1em;
+        width: 80%;
+
+    }
+
+    table,
+    td {
+        
+        padding: 0.5em;
+    }
+</style>
+<style>
+    /* Customize the label (the container) */
+    .container {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* right: .7em; */
+        /* bottom: .5em; */
+    }
+
+    /* Hide the browser's default radio button */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        /* top: 0;*/
+        right: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 20%;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input~.checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the radio button is checked, add a blue background */
+    .container input:checked~.checkmark {
+        background-color: #2196F3;
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked~.checkmark:after {
+        display: block;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .container .checkmark:after {
+        top: 7px;
+        left: 7px;
+        width: 11px;
+        height: 11px;
+        border-radius: 20%;
+        background: white;
+    }
+</style>
+{% endblock %}

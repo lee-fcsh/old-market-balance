@@ -1,0 +1,70 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %} ETAPA 1: ENTRENAMIENTO {% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions" style="padding: 1em;text-align: justify; margin-bottom: 2em;">
+    <div>
+        <div>
+            <h3>RONDA DE NEGOCIACIÓN</h3>
+        </div>
+        <div class="card-body">
+            <p>
+                Una vez cada participante recibe su rol y valor asignado, inicia la <b>ronda de negociación.</b> En esta
+                ronda,
+                tanto los vendedores como los compradores pueden hacer ofertas de precios para comprar o vender, según
+                su valoración. El objetivo de la negociación es acordar una transacción, a partir de la cual se generan
+                los pagos correspondientes (ver detalles en la siguiente sección). <br><br>
+
+                Por ejemplo, si un <b>VENDEDOR</b> hace una oferta (propone un precio de venta), y un comprador dispone
+                de ese
+                presupuesto, es decir, acepta el precio, la transacción se concreta, y se procede a gestionar los pagos.
+                Asimismo, un <b>COMPRADOR</b> propone un precio de compra, y un vendedor está interesado en vender a ese
+                precio, es decir, aceptar la oferta, la transacción se concreta. <br><br>
+
+                La ronda de negociación dura hasta que todos los participantes hayan concretado una transacción, o hasta
+                que no se concreten más transacciones en 2 minutos a partir de la última transacción.
+
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <div>
+            <h3>
+                GANANCIAS EN LA RONDA
+            </h3>
+        </div>
+        <div>
+            <div>
+                <p>
+                    En cada ronda de negociación, si un vendedor y un comprador acuerdan concretar una transacción, a un
+                    nivel de precio P, entonces, las ganancias para cada uno se calculan de la siguiente manera:
+                </p>
+            </div>
+            <div align='center'>
+                <b> GANANCIAS DEL VENDEDOR: P – COSTO DE PRODUCCIÓN (valor asignado) <br> <br>
+                    GANANCIAS DEL COMPRADOR: PRESUPUESTO (valor asignado) - P</b>
+            </div>
+            <br>
+            <div>
+                Cada participante puede hacer solo una transacción por cada ronda de negociación. <br><br>
+
+                Si un participante no concreta una transacción, no obtiene ningún beneficio en esa ronda; es decir, su
+                valor (costo o presupuesto, según el rol) no se efectiviza. <br><br>
+
+                La ganancia total de cada participante será la suma de las ganancias en las 3 rondas de negociación de
+                esta fase. <br><br>
+
+                Dado que esta es una FASE DE ENTRENAMIENTO, LAS GANANCIAS EN ESTA FASE NO FORMAN PARTE DEL PAGO FINAL. <br><br>
+
+                De clic en SIGUIENTE para iniciar.
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% next_button %}
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+2. Confianza interpersonal
+{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 1em;">
+    <div class="card bg-light instructions">
+        <div align="center"><b>Preguntas</b></div>
+        <p style="text-align: justify;">
+            Ahora vamos a hacerle algunas preguntas sobre la confianza interpersonal. <br>
+            En las siguientes preguntas, indicará sus respuestas en una escala del uno al diez. El 1 significa NADA. El
+            10 significa MUCHA. <br>
+        </p>
+    </div>
+    <div class="card bg-light instructions" style="margin-top: 1em;">
+        <div class="col-md-12">
+            <table class="blueTable">
+                <tbody>
+                    <thead style="margin-top: 5em;">
+                        <th style="width: 60%;"></th>
+                        {% for op in opciones %}
+                        <th style="width: 4%; text-align: center;">{{ op }}</th>
+                        {% endfor %}
+                    </thead>
+                </tbody>
+            </table>
+            {% for id, preg in mult %}
+            <table class="blueTable">
+                <tbody>
+
+                    <tr style="height: 3em;">
+                        <td style="width: 60%;">
+                            {{ preg }}
+                        </td>
+                        {% for op in opciones %}
+                        <td style="width: 4%;">
+                            <input name="CP{{ id }}" type="radio" value={{ op }}>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% next_button %}
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+    table.blueTable {
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        /* margin-bottom: 3%; */
+    }
+
+    table.blueTable td,
+    table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+    }
+
+    table.blueTable tbody td {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    table.blueTable thead {
+        background: #409cff;
+        background: -moz-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: -webkit-linear-gradient(top, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        background: linear-gradient(to bottom, #409cff 0%, #1988ff 66%, #007BFF 100%);
+        border-bottom: 2px solid #444444;
+        text-align: justify;
+
+    }
+
+    table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        border-left: 2px solid #D0E4F5;
+    }
+
+    table.blueTable thead th:first-child {
+        border-left: none;
+    }
+
+    table.blueTable tfoot td {
+        font-size: 14px;
+    }
+
+    table.blueTable tfoot .links {
+        text-align: right;
+    }
+
+    table.blueTable tfoot .links a {
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}

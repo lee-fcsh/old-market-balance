@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Resultados
+{% endblock %}
+
+{% block content %}
+
+<table class="table table-bordered text-justify" style="width: 50%;">
+    <tbody>
+        <tr>
+            {% if player.rol == "Donador" %}
+            <td class="table-active">Usted le envió al participante B:</td>
+            <td>{{player.ganancias}}</td>  
+            {% else %}
+            <td class="table-active">El participante A le envió:</td>
+            <td>{{ tripled_amount }}</td>
+            {% endif %}
+             
+        </tr>
+        <tr>
+            {% if player.rol == "Donador" %}
+            <td class="table-active">El participante B le devolvió:</td>
+            {% else %}
+            <td class="table-active">Usted le regresó:</td>
+            {% endif %}
+            <td>{{ group.sent_back_amount }}</td>
+        </tr>
+        <tr>
+            <td class="table-active">Su ganancia es:</td>
+            <td>{{player.ganancias}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+{% next_button %}
+{% endblock %}
