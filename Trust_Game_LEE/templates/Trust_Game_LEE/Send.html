@@ -20,8 +20,66 @@
     </tbody>
 </table>
 
-    {% formfields %}
+<p>¿Cuánto desea enviar al participante B?</p>
+
+<div class="slider">
+    <input type="range" min="0" max="{{ dotacion_inicial_int }}" value="0" class="bar-slider" id="myRange" name="sent_amount" oninput="rangeValue.innerText = this.value">
+    <p id="rangeValue">0</p>
+</div>
+
+{{ form.sent_amount.errors }}
+
 
 {% next_button %}
+
+{% endblock %}
+
+{% block styles %}
+
+<style>
+    .bar-slider {
+        width: 30%;
+    }
+    .slider {
+        /* transform: translate(-50%,-50%); */
+        width: 50%;
+        height: 60px;
+        padding: 30px;
+        padding-left: 40px;
+        background: #fcfcfc;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 5px 10px #7E6D5766;
+        margin-bottom: 25px;
+    }
+    .slider p {
+        font-size: 26px;
+        font-weight: 600;
+        padding-left: 30px;
+        color: rgb(0, 30, 255);
+        padding-top: 10px;
+    }
+    .slider input[type="range"] {
+        -webkit-appearance:none !important;
+        width: 420px;
+        height: 2px;
+        background: black;
+        border: none;
+        outline: none;
+    }
+    .slider input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        width: 30px;
+        height:30px;
+        background: black;
+        border: 2px solid black;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .slider input[type="range"]::-webkit-slider-thumb:hover {
+        background: black;
+    }
+</style>
 
 {% endblock %}

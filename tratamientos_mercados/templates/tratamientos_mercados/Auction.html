@@ -94,7 +94,7 @@ Mercado
                 </tr>
                 <tr>
                     {% if player.role == 'vendedor' %}
-                    <td style="font-weight: bold; text-align: justify;"> Precio vigente de venta:</td>
+                    <td style="font-weight: bold; text-align: justify;"> Último precio ofertado de venta:</td>
                     {% if oferta_actual == 0 %}
                     <td colspan="2""> <span id="oferta_actual"></span> </td>
                     {% else %}
@@ -102,7 +102,7 @@ Mercado
                     {% endif %}
 
                     {% else %}
-                    <td style="font-weight: bold; text-align: justify;"> Precio vigente de compra:</td>
+                    <td style="font-weight: bold; text-align: justify;"> Último precio ofertado de compra:</td>
                     {% if precio_actual == 999999999999999999999999999 %}
                     <td colspan="2""> <span id="precio_actual"></span> </td>
                     {% else %}

@@ -69,10 +69,10 @@ Mercado
             </div> 
         </div>
 
-        <table class="table table-hover text-center" style="margin-top: 1em;">
+        <table class="table table-hover text-center table-oferta" style="margin-top: 1em;">
             <tbody>
                 <tr>
-                    <td style="font-weight: bold; text-align: justify;">Hacer una oferta:</td>
+                    <td style="font-weight: bold; text-align: justify;">Hacer una oferta: <b>(P)</b></td>
                     <td><input type="number" id="precio" name="precio" style="text-align: right;"></td>
                     <td><button id='changepricebtn' role='button' class="btn  btn-large btn-primary next-button" type="button" data-dismiss="modal">Enviar</button></td>
                 </tr>
@@ -94,7 +94,7 @@ Mercado
                 </tr>
                 <tr>
                     {% if player.role == 'vendedor' %}
-                    <td style="font-weight: bold; text-align: justify;"> Precio vigente de venta:</td>
+                    <td style="font-weight: bold; text-align: justify;"> Último precio ofertado de venta:</td>
                     {% if oferta_actual == 0 %}
                     <td colspan="2""> <span id="oferta_actual"></span> </td>
                     {% else %}
@@ -102,7 +102,7 @@ Mercado
                     {% endif %}
 
                     {% else %}
-                    <td style="font-weight: bold; text-align: justify;"> Precio vigente de compra:</td>
+                    <td style="font-weight: bold; text-align: justify;"> Último precio ofertado de compra:</td>
                     {% if precio_actual == 999999999999999999999999999 %}
                     <td colspan="2""> <span id="precio_actual"></span> </td>
                     {% else %}
@@ -117,11 +117,8 @@ Mercado
             "No puede realizar oferta: El valor se encuentra fuera de rango."
         </div>
     </div>
-
 </div>
 
-
-<!-- --------------------------------------------------- -->
 
 {% next_button %}
 {% endblock %}
@@ -201,5 +198,8 @@ Mercado
     border-top: 1px solid #dee2e6;
 }
 
+.table-oferta tr > td:nth-child(1) {
+    width: 200px !important;
+}
 </style>
 {% endblock %}

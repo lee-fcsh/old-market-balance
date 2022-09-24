@@ -15,6 +15,10 @@ class Send(Page):
     form_fields = ['sent_amount']
     def is_displayed(self):
         return self.player.rol == "Donador"
+    def vars_for_template(self):
+        return dict(
+            dotacion_inicial_int = Constants.dotacion_inicial_int
+        )
 
 class WaitForDonador(WaitPage):
     def after_all_players_arrive(self):

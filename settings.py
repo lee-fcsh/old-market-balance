@@ -26,16 +26,22 @@ SESSION_CONFIGS = [
     ),
     dict(
        name='tratamientos_mercados',
-       display_name="tratamientos_mercados",
+       display_name="Tratamientos de Mercados",
        num_demo_participants=4,
        app_sequence=['tratamientos_mercados']
+    ),
+    dict(
+       name='Trust_Game_LEE',
+       display_name="Trust Game",
+       num_demo_participants=2,
+       app_sequence=['Trust_Game_LEE']
     ),
 ]
 
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 

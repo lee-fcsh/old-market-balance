@@ -1,13 +1,13 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
-{% block title %} ETAPA 1: ENTRENAMIENTO {% endblock %}
+{% block title %} RONDA DE ENTRENAMIENTO {% endblock %}
 
 {% block content %}
 
 <div class="card bg-light instructions" style="padding: 1em;text-align: justify; margin-bottom: 2em;">
     <div>
         <div>
-            <h3>RONDA DE NEGOCIACIÓN</h3>
+            <h3>NEGOCIACIÓN</h3>
         </div>
         <div class="card-body">
             <p>
@@ -44,12 +44,12 @@
                 </p>
             </div>
             <div align='center'>
-                <b> GANANCIAS DEL VENDEDOR: P – COSTO DE PRODUCCIÓN (valor asignado) <br> <br>
-                    GANANCIAS DEL COMPRADOR: PRESUPUESTO (valor asignado) - P</b>
+                <b> GANANCIAS DEL VENDEDOR = <span class="badge bg-primary" style="color: white;">P – COSTO DE PRODUCCIÓN (valor asignado)</span> <br> <br>
+                    GANANCIAS DEL COMPRADOR = <span class="badge bg-primary"  style="color: white;">PRESUPUESTO (valor asignado) - P</span></b>
             </div>
             <br>
             <div>
-                Cada participante puede hacer solo una transacción por cada ronda de negociación. <br><br>
+                <span class="badge rounded-pill bg-warning"> Cada participante puede hacer solo una transacción por cada ronda de negociación.</span> <br><br>
 
                 Si un participante no concreta una transacción, no obtiene ningún beneficio en esa ronda; es decir, su
                 valor (costo o presupuesto, según el rol) no se efectiviza. <br><br>

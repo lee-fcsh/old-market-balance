@@ -24,7 +24,8 @@ class Constants(BaseConstants):
 
     template_jugadores = 'Trust_Game_LEE/instrucciones_jugadores.html'
 
-    dotacion_inicial = c(20)
+    dotacion_inicial_int =20
+    dotacion_inicial = c(dotacion_inicial_int)
     factor_multiplicador = 2
 
 
@@ -45,8 +46,17 @@ class Subsession(BaseSubsession):
 
 #### FIXMEE
 class Group(BaseGroup):
-    sent_amount = models.FloatField(label="¿Cuánto desea enviar al participante B?", min = 0, max = Constants.dotacion_inicial)
-    sent_back_amount = models.FloatField(label="¿Cuánto desea devolver?", min = 0)
+    sent_amount = models.IntegerField(
+        label="¿Cuánto desea enviar al participante B?",
+        min = 0, max = Constants.dotacion_inicial,
+        widget=widgets.RadioSelect,
+        choices=range(0, Constants.dotacion_inicial_int + 1)
+    )
+    sent_back_amount = models.IntegerField(
+        label="¿Cuánto desea devolver?",
+        widget=widgets.RadioSelect,
+        min=0
+    )
     def sent_back_amount_max(self):
         return self.sent_amount * Constants.factor_multiplicador
 
