@@ -1,0 +1,12 @@
+.img-responsive{
+    margin: 0 auto;
+  }
+.page-header{
+    display: none;
+  }
+p{
+    font-size: 40px;
+  }
+  .row{
+    margin-top: 10%;
+  }

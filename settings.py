@@ -16,13 +16,13 @@ SESSION_CONFIGS = [
        name='Session2',
        display_name="Session2",
        num_demo_participants=4,
-       app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE','cuest_aversion_al_riesgo','cuest_demografico','despedida']
+       app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
     dict(
        name='Session1',
        display_name="Session1",
        num_demo_participants=2,
-       app_sequence=['Welcome2', 'Bienvenida_v2','bret','mpl_para_tiempoV2','Trust_Game_LEE','cuestionario_IDB','cuest_aversion_al_riesgo','cuest_demografico','despedida']
+       app_sequence=['Welcome2', 'Bienvenida_v2','bret','mpl_para_tiempoV2','Trust_Game_LEE','cuestionario_IDB','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
     dict(
        name='tratamientos_mercados',

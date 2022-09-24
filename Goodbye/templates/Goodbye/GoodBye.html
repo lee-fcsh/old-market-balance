@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<div class="row">
+  <div class="col">
+    <p>¡Gracias por participar en el experimento y contribuir con la ciencia!</p>
+  </div>
+  <div class="col">
+    <img src="{% static 'img/despedida.gif' %}" alt="LEE">
+    <hr>
+  </div>
+  <div class="col">
+    <p>Por favor espere a ser llamado para recibir su pago.</p>
+  </div>
+
+</div>
+
+{% endblock %}
