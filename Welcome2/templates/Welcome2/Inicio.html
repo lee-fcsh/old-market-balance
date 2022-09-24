@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+        <div class="row" style="margin-top: 0%">
+            <div class="col-md-12" style="margin-bottom: 0%">
+                <h1 class="text-center" style="font-family: 'Francois One', sans-serif; font-size: 60px">Bienvenidos al</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img  class="img-responsive" src="{% static 'img/lee.png'%}" style="pointer-events: none;  width: 60%; margin-top: 2%;" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="img-responsive rounded" src="{% static 'img/hamster.gif'%}" style="pointer-events: none; width: 40%; margin-top: 2%;" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 2%;">
+                <p class="text-justify text-center" style="font-family: sans-serif; font-size: 20px;">A continuación de clic en "Siguiente" para iniciar con la sesión.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center" >
+                {% next_button %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block app_scripts %}
+<script src="{% static 'js/script.js' %}" >
+</script>
+{% endblock %}
