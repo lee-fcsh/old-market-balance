@@ -32,7 +32,7 @@ class Send_Back(Page):
 
     def vars_for_template(self):
         return dict(
-            tripled_amount = self.group.sent_amount * Constants.factor_multiplicador
+            tripled_amount = int(self.group.sent_amount * Constants.factor_multiplicador)
         )
 
 class ResultsWaitPage(WaitPage):
