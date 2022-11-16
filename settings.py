@@ -36,6 +36,12 @@ SESSION_CONFIGS = [
        num_demo_participants=2,
        app_sequence=['Trust_Game_LEE']
     ),
+    dict(
+       name='bret',
+       display_name="bret Game",
+       num_demo_participants=1,
+       app_sequence=['bret']
+    ),
 ]
 
 
@@ -62,3 +68,4 @@ SECRET_KEY = '(nzey0oxy!5b(^n&^*xlqd=eq-41$yuux4_ed@gahl2lnu6+%j'
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
 EXTENSION_APPS = ['market_equilibrio', 'tratamientos_mercados']
+ 
