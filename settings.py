@@ -16,7 +16,7 @@ SESSION_CONFIGS = [
        name='market',
        display_name="Equilibrio de Mercado (Live)",
        num_demo_participants=4,
-       app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
+       app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE', 'caution_form','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
     dict(
        name='Session1',
@@ -28,7 +28,7 @@ SESSION_CONFIGS = [
        name='leetest',
        display_name="TEST GAME",
        num_demo_participants=2,
-       app_sequence=['market_equilibrio']
+       app_sequence=['caution_form']
     )
 ]
 
