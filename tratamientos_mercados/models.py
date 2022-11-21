@@ -42,8 +42,7 @@ class Subsession(BaseSubsession):
 
         # fixme aqui debe ser cuantos mercados se van a formar
         jugadores = self.get_players()
-
-        numero_participantes_tratamientos = [0,0,4,4]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
+        numero_participantes_tratamientos = [10,10,10,20]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
 
 
 
