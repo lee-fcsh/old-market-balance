@@ -4,6 +4,7 @@ import string
 from .models import Constants
 from . import models
 import operator
+import random as rd
 
 #################### PAGINAS DE INTRUCCIONES PARA EL EXPERIMENTO DE MERCADO   ###############################
 
@@ -136,7 +137,7 @@ class RenegarWaitPage(WaitPage):
                 if p1.role() == 'vendedor':         
                     for p2 in self.group.get_players():    # BUSCAMOS CON  QUIEN HIZO MATCH
                         if p1.id_venta == p2.id_venta and p1.identificador != p2.identificador:  # BUSCAMOS SU MATCH
-                            """ 
+                            """
                             La ganancia acontinuacion, probablemente su forma de calcular se repite en codigo, por lo que este se podria reducir,
                             sin embargo, se dejo de esta forma por si se necesita cambiar el valor de ganancia de un caso especifico.
                             """
@@ -155,7 +156,7 @@ class RenegarWaitPage(WaitPage):
                             else:
                                 p1.ganancia = p1.valor_venta - p1.carta
 
-                                
+
                 ################### SI EL JUGADOR ES COMPRADOR   ##########################
                 elif p1.role() == 'comprador':
                     for p2 in self.group.get_players():    # BUSCAMOS CON  QUIEN HIZO MATCH
@@ -182,7 +183,7 @@ class RenegarWaitPage(WaitPage):
                 p1.valor_venta = 0
                 p1.ganancia = 0
                 p1.aceptar_proceso = ""
-                      
+
 
 class Results(Page):
     def vars_for_template(self):
@@ -201,9 +202,7 @@ class Results(Page):
                     renegar_contraparte = 'SI'
                 else:
                     renegar_contraparte = 'NO'
-                         
-        
-        
+
         return{
             'ronda' : self.round_number,
             'ganancia' : self.player.ganancia,
@@ -212,22 +211,26 @@ class Results(Page):
             'renegar_contraparte' : renegar_contraparte
         }
 
+    def before_next_page(self):
+        self.participant.vars['ronda_ale_1'] = rd.randint(1, 3)
+        self.participant.vars['ronda_ale_2'] = rd.randint(4, Constants.num_rounds)
+
 class Resultados_Finales(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
-    
+
     def vars_for_template(self):
-        ganancia_total_seccion1 = 0
-        ganancia_total_seccion2 = 0
-        for ronda in range(1, Constants.num_rounds+1):
-            if ronda <=3:
-                ganancia_total_seccion1 += self.player.in_round(ronda).ganancia
-            else:
-                ganancia_total_seccion2 += self.player.in_round(ronda).ganancia
+        ronda_aleatoria1 = self.participant.vars['ronda_ale_1']
+        ronda_aleatoria2 = self.participant.vars['ronda_ale_2']
+        ganancia_total_seccion1 = self.player.in_round(ronda_aleatoria1).ganancia
+        ganancia_total_seccion2 = self.player.in_round(ronda_aleatoria2).ganancia
+        self.player.payoff = ganancia_total_seccion1 + ganancia_total_seccion2
 
         return{
             'ganancia_total_seccion1' : ganancia_total_seccion1,
+            'ronda_aleatoria1' : ronda_aleatoria1,
             'ganancia_total_seccion2' : ganancia_total_seccion2,
+            'ronda_aleatoria2' : ronda_aleatoria2 - 3,
             'ganancia_total' : ganancia_total_seccion1 + ganancia_total_seccion2,
         }
 
@@ -243,10 +246,10 @@ class Cuestionario(Page):
 
         elif values['pregunta2'] != "No se realiza la transacción, ambos ganan 0 y se pasa a la siguiente ronda.":
             return 'Pregunta 2: Respuesta Incorrecta'
-        
+
         elif values['pregunta3'] != "Comprador 7 y Vendedor -5":
             return 'Pregunta 3: Respuesta Incorrecta'
-        
+
         elif values['pregunta4'] != "Comprador -8 y Vendedor 8":
             return 'Pregunta 4: Respuesta Incorrecta'
 

@@ -24,7 +24,7 @@ class Constants(BaseConstants):
 
     template_jugadores = 'Trust_Game_LEE/instrucciones_jugadores.html'
 
-    dotacion_inicial_int =20
+    dotacion_inicial_int =10
     dotacion_inicial = c(dotacion_inicial_int)
     factor_multiplicador = 2
 

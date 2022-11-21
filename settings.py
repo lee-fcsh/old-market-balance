@@ -8,40 +8,28 @@ from os import environ
 ADMIN_USERNAME = 'admin'
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
+    real_world_currency_per_point=1.00, participation_fee=2.50, doc=""
 )
 
 SESSION_CONFIGS = [
     dict(
-       name='Session2',
-       display_name="Session2",
+       name='market',
+       display_name="Equilibrio de Mercado (Live)",
        num_demo_participants=4,
        app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
     dict(
        name='Session1',
-       display_name="Session1",
+       display_name="Cuestionarios (P2)",
        num_demo_participants=2,
        app_sequence=['Welcome2', 'Bienvenida_v2','bret','mpl_para_tiempoV2','Trust_Game_LEE','cuestionario_IDB','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
     dict(
-       name='tratamientos_mercados',
-       display_name="Tratamientos de Mercados",
+       name='leetest',
+       display_name="TEST GAME",
        num_demo_participants=4,
        app_sequence=['tratamientos_mercados']
-    ),
-    dict(
-       name='Trust_Game_LEE',
-       display_name="Trust Game",
-       num_demo_participants=2,
-       app_sequence=['Trust_Game_LEE']
-    ),
-    dict(
-       name='bret',
-       display_name="bret Game",
-       num_demo_participants=1,
-       app_sequence=['bret']
-    ),
+    )
 ]
 
 

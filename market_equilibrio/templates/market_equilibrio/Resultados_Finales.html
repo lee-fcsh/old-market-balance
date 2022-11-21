@@ -6,26 +6,29 @@
 {% endblock %}
 
 {% block content %}
-
+    <center> <span class="badge bg-primary" style="color: white;">Cada punto equivale a 1 dolar</span></center>
     <div align='center'>
-        <table class="table table-bordered text-center" style="width: 60%; margin: 4em;">
+        <table class="table table-bordered text-center" style="width: 70%; margin: 3em;">
             <tbody>
                 <tr style="font-size: 1.2em;">
                     <td style="text-align: justify;" class="table-active">Su ganancia en la <b>FASE 1</b> es:</td>
+                    <td style="text-align: right;">Ronda seleccionada: <b>{{ronda_aleatoria1}} </b></td>
                     <td style="text-align: right;"><b>{{ganancia_total_seccion1|floatformat:2}} puntos</b></td>
                 </tr>
                 <tr style="font-size: 1.2em;">
                     <td style="text-align: justify;" class="table-active">Su ganancia en la <b>FASE 2</b> es:</td>
+                    <td style="text-align: right;">Ronda seleccionada: <b>{{ronda_aleatoria2}} </b></td>
                     <td style="text-align: right;"><b>{{ganancia_total_seccion2|floatformat:2}} puntos</b></td>
                 </tr>
                 <tr style="text-align: justify;font-size: 1.2em;">
                     <td class="table-active">Su ganancia total es<b>*</b>: </td>
+                    <td> </td>
                     <td style="text-align: right;"><b> {{ ganancia_total|floatformat:2 }} puntos</b></td>
                 </tr>
             </tbody>
         </table>
     </div>
-    
+
 
     <p style="font-size: 1.5em;"><b>*</b> Estas ganancias no se incluyen en el pago final.</p>
     <br>

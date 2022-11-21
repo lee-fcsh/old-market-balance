@@ -16,14 +16,14 @@ class Introduccion0(Page):
             texto1 = 'Asimismo, mantendrá el mismo valor (costo de producción o presupuesto) en cada ronda.'
         else:
             texto1 = 'Sin embargo, usted enfrentará un valor (costo de producción o presupuesto) distinto en cada ronda de negociación.'
-        
+
         if self.group.id_in_subsession == 0 or self.group.id_in_subsession == 1:
             texto2 = 'El COSTO de contratar un mediador es $ c.'
             texto3 = '$ c'
         else:
-            texto2 = 'El COSTO (c) de contratar un mediador es un porcentaje fijo (k%) del valor asignado a cada participante. '
+            texto2 = f'El COSTO (c) de contratar un mediador es un porcentaje fijo ({Constants.valor_porcentual_abogado * 100}%) del valor asignado a cada participante.'
             texto3 = ' c= k% del valor asignado'
-        
+
         return{
             'texto1' : texto1,
             'texto2' : texto2,

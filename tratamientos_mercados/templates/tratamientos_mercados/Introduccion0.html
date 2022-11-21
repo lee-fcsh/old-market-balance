@@ -9,8 +9,9 @@
         <p>
             En la etapa 2 usted jugará 10 rondas de negociación bajo la misma estructura de decisiones propuesta en la
             etapa 1. <br><br> 
-            <b>Las ganancias acumuladas de cada ronda en esta etapa forman parte de las ganancias totales
-            del experimento.<br><br></b> 
+            <b>Las ganancias en esta etapa son el resultado de elegir aleatoriamente UNA de las rondas, y forman parte de las ganancias totales del experimento.</b><br><br>
+
+            El presupuesto/costo de producción, según su rol, cambia en cada ronda.
 
             <b>Usted mantendrá el mismo rol asignado en todas las rondas. {{texto1}}</b>
             <br><br>
@@ -18,6 +19,8 @@
 
             Además de las decisiones previas, en esta etapa usted tendrá la oportunidad de <b>CONTRATAR UN MEDIADOR,</b>
             cuyo rol se describe a continuación. <br><br>
+
+            Usted tiene maximo 5 minutos por ronda para tomar una desición.
         </p>
     </div>
     <br>
@@ -32,16 +35,13 @@
             <div>
                 <p>
                     La opción de <b>CONTRATAR UN MEDIADOR</b> le permite, <b>a cualquiera de las dos partes (vendedor o
-                        comprador), GARANTIZAR</b> el cumplimiento de la transacción de la contraparte y <b>REDUCIR SUS
-                        GANANCIAS</b>
+                    comprador), GARANTIZAR</b> el cumplimiento de la transacción de la contraparte y <b>REDUCIR SUS GANANCIAS</b>
                     en caso reniegue la transacción en una ronda de negociación. <br><br>
 
                     <b>Por ejemplo:</b> suponga que en una ronda de negociación, un vendedor y un comprador deciden
                     hacer una
                     transacción, con un nivel de precio <b>P. Antes de que los participantes decidan <u>renegar</u> o <u>completar</u>
-                        la
-                        transacción,</b> cada participante observará la siguiente pantalla:
-
+                        la transacción,</b> cada participante observará la siguiente pantalla:
                 </p>
             </div>
             <hr>
@@ -62,15 +62,14 @@
             <div>
                 <p>
                     Note que la decisión de contratar al mediador <b>se toma de manera simultánea y anónima</b> y no se revela
-                    hasta que se efectivicen los resultados de la negociación. Asimismo, <b>SI UN PARTICIPANTE DECIDE
-                        CONTRATAR UN MEDIADOR, NO PUEDE RENEGAR SU LADO DE LA TRANSACCIÓN.</b>
+                    hasta que se efectivicen los resultados de la negociación. Asimismo, <b>SI UN PARTICIPANTE DECIDE CONTRATAR UN MEDIADOR, NO PUEDE RENEGAR SU LADO DE LA TRANSACCIÓN.</b>
                 </p>
                 <p>
                     {{texto2}}
                 </p>
                 <p>
                     Si un participante decide <b>RENEGAR</b> la transacción (y por lo tanto no contrata un mediador)
-                    pero la contraparte decidió <b>CONTRATAR</b> un mediador, las ganancias del participante <b>SE REDUCEN</b> en $ d*c (en donde d>1).
+                    pero la contraparte decidió <b>CONTRATAR</b> un mediador, las ganancias del participante <b>SE REDUCEN</b> en <b>$ {{Constants.valor_d}}*c</b>.
                 </p>
             </div>
         </div>

@@ -42,15 +42,17 @@ class ResultsWaitPage(WaitPage):
             rol = p.rol
             if rol == "Donador":
                 p.ganancias = Constants.dotacion_inicial - self.group.sent_amount + self.group.sent_back_amount
+                p.payoff += p.ganancias
             else:
                 p.ganancias = (self.group.sent_amount * Constants.factor_multiplicador) - self.group.sent_back_amount
+                p.payoff += p.ganancias
 
 class Results(Page):
     def vars_for_template(self):
         return dict(
             tripled_amount = self.group.sent_amount * Constants.factor_multiplicador
         )
-    
+
 
 
 page_sequence = [Instrucciones_Seccion1,Instrucciones_Seccion2,Send, WaitForDonador, Send_Back, ResultsWaitPage, Results]
