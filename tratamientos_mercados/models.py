@@ -21,7 +21,6 @@ class Constants(BaseConstants):
     ganancias_template2 = 'tratamientos_mercados/Ganancias_etapa1.html'
 
     tratamientos = [0, 1, 2, 3]
-    numero_participantes_tratamientos = [0,0,0,4]
 
     valor_fijo_abogado = 2
     valor_porcentual_abogado = 0.10
@@ -40,14 +39,22 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         new_structure = [[], [], [], []]
         id = 0
+
+        # fixme aqui debe ser cuantos mercados se van a formar
         jugadores = self.get_players()
+
+        numero_participantes_tratamientos = [0,0,4,4]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
+
+
+
         for p in range(1, len(jugadores)+1):
-            while (len(new_structure[Constants.tratamientos[id]]) == Constants.numero_participantes_tratamientos[Constants.tratamientos[id]]):
+            while (len(new_structure[Constants.tratamientos[id]]) == numero_participantes_tratamientos[Constants.tratamientos[id]]):
                 id+=1
+
             n_tratamiento = Constants.tratamientos[id]
-            if len(new_structure[n_tratamiento]) < Constants.numero_participantes_tratamientos[n_tratamiento]:
+            if len(new_structure[n_tratamiento]) < numero_participantes_tratamientos[n_tratamiento]:
                 new_structure[n_tratamiento].append(p)
-        print(new_structure) # will output this:
+
         self.set_group_matrix(new_structure)
         # print(self.get_group_matrix()) # will output this:
         letraC = 1   # IDENTIFICADOR DEL COMPRADOR
