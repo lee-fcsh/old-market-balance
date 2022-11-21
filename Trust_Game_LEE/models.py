@@ -25,7 +25,6 @@ class Constants(BaseConstants):
     template_jugadores = 'Trust_Game_LEE/instrucciones_jugadores.html'
 
     dotacion_inicial_int =10
-    dotacion_inicial = c(dotacion_inicial_int)
     factor_multiplicador = 2
 
 
@@ -48,7 +47,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     sent_amount = models.IntegerField(
         label="¿Cuánto desea enviar al participante B?",
-        min = 0, max = Constants.dotacion_inicial,
+        min = 0, max = Constants.dotacion_inicial_int,
         widget=widgets.RadioSelect,
         choices=range(0, Constants.dotacion_inicial_int + 1)
     )
@@ -63,5 +62,5 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     rol  = models.StringField()
-    ganancias = models.CurrencyField()
+    ganancias = models.IntegerField()
     

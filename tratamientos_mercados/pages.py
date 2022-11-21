@@ -4,6 +4,7 @@ import string
 from .models import Constants
 from . import models
 import operator
+import random as rd
 
 #################### PAGINAS DE INTRUCCIONES PARA EL EXPERIMENTO DE MERCADO   ###############################
 
@@ -262,18 +263,21 @@ class Results(Page):
             'renegar_contraparte' : renegar_contraparte
         }
 
+    def before_next_page(self):
+        self.participant.vars['ronda_aleatoria'] = rd.randint(1, Constants.num_rounds)
+
 
 class Resultados_Finales(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
     
     def vars_for_template(self):
-        ganancia_total = 0
-        for ronda in range(1, Constants.num_rounds+1):
-            ganancia_total += self.player.in_round(ronda).ganancia
+        ronda_aleatoria = self.participant.vars['ronda_aleatoria']
+        ganancia_total = self.player.in_round(ronda_aleatoria).ganancia
 
         return{
             'ganancia_total' : ganancia_total,
+            'ronda_seleccionada':ronda_aleatoria
         }
 
 page_sequence = [

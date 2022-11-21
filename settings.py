@@ -8,7 +8,7 @@ from os import environ
 ADMIN_USERNAME = 'admin'
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=2.50, doc=""
+   real_world_currency_per_point=1.00, participation_fee=2.50, doc=""
 )
 
 SESSION_CONFIGS = [
@@ -27,8 +27,8 @@ SESSION_CONFIGS = [
     dict(
        name='leetest',
        display_name="TEST GAME",
-       num_demo_participants=4,
-       app_sequence=['tratamientos_mercados']
+       num_demo_participants=2,
+       app_sequence=['market_equilibrio']
     )
 ]
 
@@ -41,7 +41,7 @@ TIME_ZONE = 'UTC'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+USE_POINTS = False
 
 ROOMS = []
 

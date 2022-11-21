@@ -19,26 +19,23 @@ Etapa 3 – Sección 1
                 <td style="width: 50%;">
                     <div class="alert alert-info" style="height: 13em">
                         <b> Jugador A </b><br><br>
-                        El jugador A recibe una dotación inicial de 20 ecus. <b>La decisión del jugador A es fijar una cantidad X,
+                        El jugador A recibe una dotación inicial de {{Constants.dotacion_inicial_int}} puntos. <b>La decisión del jugador A es fijar una cantidad X,
                             entre 0
-                            y 20 ecus, según sus preferencias, que desea enviar al jugador B.</b> <br><br>
+                            y {{Constants.dotacion_inicial_int}} puntos, según sus preferencias, que desea enviar al jugador B.</b> <br><br>
                     </div>
                 </td>
                 <td style="width: 50%;">
                     <div class="alert alert-info" style="height: 13em">
                         <b> Jugador B </b><br><br>
                         <b>El jugador B debe esperar la decisión del jugador A.</b> Una vez el jugador A decide la cantidad X a enviar, el
-                        jugador B <b>recibe dos veces dicha cantidad (2X).</b> Por ejemplo, si el jugador A decide enviar 8 ecus, el
-                        jugador B recibe 16 ecus. <br><br>
+                        jugador B <b>recibe dos veces dicha cantidad (2X).</b> Por ejemplo, si el jugador A decide enviar 4 puntos, el
+                        jugador B recibe 8 puntos. <br><br>
                     </div>
                 </td>
             </tr>
         </table>
-        
-        
 
-
-        Luego de recibir la cantidad de ecus correspondiente, <b>la decisión del jugador B consiste en fijar una
+        Luego de recibir la cantidad de puntos correspondiente, <b>la decisión del jugador B consiste en fijar una
             cantidad Y, entre 0 y 2X, que desea devolver al jugador A.</b>
         <hr>
         <h3>Pagos</h3><br>
@@ -48,18 +45,20 @@ Etapa 3 – Sección 1
                 <td style="width: 50%;">
                     <div class="alert alert-info" style="height: 7em">
                         <b>Jugador A:</b> El pago del jugador A corresponde a la dotación inicial, menos la cantidad que envía al
-                        jugador B, y más la cantidad que él le devuelve (20-X+Y ecus).
+                        jugador B, y más la cantidad que él le devuelve ({{Constants.dotacion_inicial_int}}-X+Y puntos).
                     </div>
                 </td>
                 <td style="width: 50%;">
                     <div class="alert alert-info" style="height: 7em">
                         <b>Jugador B:</b> El pago del jugador B corresponde al envío del jugador A multiplicado por dos, menos lo
-                        que decide devolverle (2X – Y ecus).
+                        que decide devolverle (2X – Y puntos).
                     </div>
                 </td>
             </tr>
         </table>
         <hr>
+        En esta sección cada punto equivale a 50cvts de dolár.
+        <center> <span class="badge bg-primary" style="color: white; font-weight: bolder; font-size:medium; margin: 1em;">1 punto = $0.50</span></center>
         El pago de esta sección se sumará con las ganancias de las demás etapas y formarán parte del pago
         final de la sesión. <br><br>
         Si tiene alguna duda, por favor levante la mano y el asistente del experimento se acercará a usted para

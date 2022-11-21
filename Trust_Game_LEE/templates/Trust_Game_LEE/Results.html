@@ -12,29 +12,34 @@ Resultados
         <tr>
             {% if player.rol == "Donador" %}
             <td class="table-active">Usted le envió al participante B:</td>
-            <td>{{player.ganancias}}</td>  
+            <td>{{group.sent_amount}} puntos</td>
             {% else %}
             <td class="table-active">El participante A le envió:</td>
-            <td>{{ tripled_amount }}</td>
+            <td>{{ tripled_amount }} puntos</td>
             {% endif %}
              
         </tr>
+        {% if player.rol == "Donador" %}
+        <tr>
+            <td class="table-active">El participante B recibe:</td>
+            <td>{{tripled_amount}} puntos</td>
+        </tr>
+        {% endif %}
+
         <tr>
             {% if player.rol == "Donador" %}
             <td class="table-active">El participante B le devolvió:</td>
             {% else %}
             <td class="table-active">Usted le regresó:</td>
             {% endif %}
-            <td>{{ group.sent_back_amount }}</td>
+            <td>{{ group.sent_back_amount }} puntos</td>
         </tr>
         <tr>
             <td class="table-active">Su ganancia es:</td>
-            <td>{{player.ganancias}}</td>
+            <td>{{player.ganancias}} puntos</td>
         </tr>
     </tbody>
 </table>
-
-
 
 
 {% next_button %}

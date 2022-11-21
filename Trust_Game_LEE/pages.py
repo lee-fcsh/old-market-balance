@@ -41,17 +41,18 @@ class ResultsWaitPage(WaitPage):
         for p in jugadores:
             rol = p.rol
             if rol == "Donador":
-                p.ganancias = Constants.dotacion_inicial - self.group.sent_amount + self.group.sent_back_amount
-                p.payoff += p.ganancias
+                p.ganancias = Constants.dotacion_inicial_int - self.group.sent_amount + self.group.sent_back_amount
+                p.payoff += (p.ganancias/2)
             else:
                 p.ganancias = (self.group.sent_amount * Constants.factor_multiplicador) - self.group.sent_back_amount
-                p.payoff += p.ganancias
+                p.payoff += (p.ganancias/2)
 
 class Results(Page):
     def vars_for_template(self):
         return dict(
-            tripled_amount = self.group.sent_amount * Constants.factor_multiplicador
+            tripled_amount = int(self.group.sent_amount * Constants.factor_multiplicador)
         )
+
 
 
 
