@@ -121,7 +121,7 @@ class Abogado(Page):
                 agente_contraparte = p2.tipo_valor
         return{
             'costo_abogado' : costo_abogado,
-            'agente_contraparte' : agente_contraparte,
+            'agente_contraparte' : agente_contraparte
         }
 
 class Renegar(Page):
@@ -143,7 +143,12 @@ class Renegar(Page):
     def before_next_page(self):
         if self.player.abogado == 'Si':
             self.player.aceptar_proceso = 'Aceptar'
+        if self.player.aceptar_proceso is None:
+            self.player.aceptar_proceso = 'Renegar'
 
+    def error_message(self, values):
+        if self.player.abogado != 'Si' and values['aceptar_proceso'] == None:
+            return 'Seleccione una opcion en la desición'
 
 
 ## Pagina para hacer calculos antes de mostrar resultados
