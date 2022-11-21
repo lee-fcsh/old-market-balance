@@ -148,7 +148,7 @@ class Renegar(Page):
 
     def error_message(self, values):
         if self.player.abogado != 'Si' and values['aceptar_proceso'] == None:
-            return 'Seleccione una opcion en la desición'
+            return 'Seleccione una opcion en la decisión'
 
 
 ## Pagina para hacer calculos antes de mostrar resultados
@@ -279,6 +279,17 @@ class Resultados_Finales(Page):
     def vars_for_template(self):
         ronda_aleatoria = self.participant.vars['ronda_aleatoria']
         ganancia_total = self.player.in_round(ronda_aleatoria).ganancia
+        self.player.payoff = ganancia_total
+
+        ########### CALCULO DE PAYOFF A PARTICIPANTE POR CADA APP #####################################
+        self.participant.vars['dict_results'] = (self.participant.vars).get('dict_results', {})
+        self.participant.vars['dict_results']['market_etapa2'] =dict(
+            label='Equilibrio de Mercado (Etapa 2)',
+            payoff=0
+        )
+        for round in range(1, Constants.num_rounds+1):
+            self.participant.vars['dict_results']['market_etapa2']['payoff'] += self.player.in_round(round).payoff
+        #################################################################################################
 
         return{
             'ganancia_total' : ganancia_total,

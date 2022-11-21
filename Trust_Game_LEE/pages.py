@@ -49,6 +49,16 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     def vars_for_template(self):
+        ########### CALCULO DE PAYOFF A PARTICIPANTE POR CADA APP #####################################
+        self.participant.vars['dict_results'] = (self.participant.vars).get('dict_results', {})
+        self.participant.vars['dict_results']['trust_game'] =dict(
+            label='Trust Game',
+            payoff=0
+        )
+        for round in range(1, Constants.num_rounds+1):
+            self.participant.vars['dict_results']['trust_game']['payoff'] += self.player.in_round(round).payoff
+        #################################################################################################
+
         return dict(
             tripled_amount = int(self.group.sent_amount * Constants.factor_multiplicador)
         )

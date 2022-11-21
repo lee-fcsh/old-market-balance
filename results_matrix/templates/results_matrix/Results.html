@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Resultados de la Sesión Experimental
+{% endblock %}
+
+{% block content %}
+    A continuación se especifica las ganancias de cada etapa de la sesión:
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Ganancia</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        <tr class="table-success">
+            <th scope="row">1</th>
+            <td>Participar en la sesión</td>
+            <td> {{ session.participation_fee }}</td>
+        </tr>
+
+
+
+
+        <tr>
+            <th scope="row">2</th>
+            <td>{{ opciones.market_etapa2.label }}</td>
+            <td> {{ opciones.market_etapa2.payoff }}</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>{{ opciones.trust_game.label }}</td>
+            <td> {{ opciones.trust_game.payoff }}</td>
+        </tr>
+
+
+
+        <tr class="table-primary">
+            <th scope="row"></th>
+            <td>Ganancia Total</td>
+            <td> {{ total_pagar }}</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    {% next_button %}
+{% endblock %}
+
+

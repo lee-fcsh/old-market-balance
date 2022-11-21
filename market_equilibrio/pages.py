@@ -224,7 +224,6 @@ class Resultados_Finales(Page):
         ronda_aleatoria2 = self.participant.vars['ronda_ale_2']
         ganancia_total_seccion1 = self.player.in_round(ronda_aleatoria1).ganancia
         ganancia_total_seccion2 = self.player.in_round(ronda_aleatoria2).ganancia
-        self.player.payoff = ganancia_total_seccion1 + ganancia_total_seccion2
 
         return{
             'ganancia_total_seccion1' : ganancia_total_seccion1,
