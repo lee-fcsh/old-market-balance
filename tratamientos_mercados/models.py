@@ -44,8 +44,6 @@ class Subsession(BaseSubsession):
         jugadores = self.get_players()
         numero_participantes_tratamientos = [0,0,0,4]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
 
-
-
         for p in range(1, len(jugadores)+1):
             while (len(new_structure[Constants.tratamientos[id]]) == numero_participantes_tratamientos[Constants.tratamientos[id]]):
                 id+=1

@@ -279,7 +279,7 @@ class Resultados_Finales(Page):
     def vars_for_template(self):
         ronda_aleatoria = self.participant.vars['ronda_aleatoria']
         ganancia_total = self.player.in_round(ronda_aleatoria).ganancia
-        self.player.payoff = ganancia_total
+        self.player.payoff = ganancia_total * 1.5
 
         ########### CALCULO DE PAYOFF A PARTICIPANTE POR CADA APP #####################################
         self.participant.vars['dict_results'] = (self.participant.vars).get('dict_results', {})
