@@ -28,7 +28,7 @@ SESSION_CONFIGS = [
        name='leetest',
        display_name="TEST GAME",
        num_demo_participants=2,
-       app_sequence=['Trust_Game_LEE']
+       app_sequence=['cuest_demografico']
     )
 ]
 

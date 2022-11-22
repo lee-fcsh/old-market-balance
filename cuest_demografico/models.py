@@ -55,8 +55,8 @@ class Player(BasePlayer):
     c4_p18_op = ("1", "2", "3", "4", "5")
     c4_pregunta_18 = models.CharField(choices=c4_p18_op, verbose_name="18)\tEn una escala del 1 al 5 donde: 1 es nada paciente y 5 es muy paciente, usted es:")  # paciencia--> escala del 1 al 5
 
-    c4_p19_op = ("Fiscal", "Particular")
-    c4_pregunta_19 = models.CharField(choices=c4_p19_op, verbose_name="19)\t¿En qué clase de colegio usted se graduó?") # clase de colegio
+    c4_p19_op = ("Fiscal", "Particular", "Fiscomisional")
+    c4_pregunta_19 = models.CharField(choices=c4_p19_op, verbose_name="19)\t¿En qué tipo de colegio usted se graduó?") # clase de colegio
 
     c4_p20_op = (
         ("FCNM", "FCNM - FACULTAD DE CIENCIAS NATURALES Y MATEMATICAS"),
@@ -68,7 +68,7 @@ class Player(BasePlayer):
         ("EDCOM", "EDCOM - ESCUELA DE DISEÑO Y COMUNICACION VISUAL"),
         ("FCV", "FCV - FACULTAD DE CIENCIAS DE LA VIDA"))
 
-    c4_pregunta_20 = models.CharField(choices=c4_p20_op, verbose_name="20)\t¿En qué facultad estudia?") # facultad
+    c4_pregunta_20 = models.StringField(verbose_name="20)\t¿Qué carrera estudia?")
 
     c4_pregunta_21 = models.FloatField(min=1.30, max=2.30, verbose_name="21)\tAproximadamente, ¿Cuánto es su estatura (en metros)?")
 
