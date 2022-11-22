@@ -11,14 +11,15 @@ class Page1(Page):
     def vars_for_template(self):
         opciones = [i for i in range(1, 11)]
         return {
-                'opciones': opciones                
+                'opciones': opciones
                 }
-    
+
+
 class Page2(Page):
 
     form_model = models.Player
     form_fields = ['pregunta_{}'.format(i) for i in range(2, 8)]
-    
+
     def vars_for_template(self):
         p_2 = "¿Mientras manejo?"
         p_3 = "¿En asuntos financieros?"
@@ -35,7 +36,6 @@ class Page2(Page):
                 'opciones': opciones,
                 'mult': zip(ids_preg, preguntas)
                 }
-
 
 
 page_sequence = [
