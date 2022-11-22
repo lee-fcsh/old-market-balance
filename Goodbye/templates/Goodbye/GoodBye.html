@@ -4,18 +4,33 @@
 <head>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<div class="row">
+<div>
+  <hr>
   <div class="col">
-    <p>¡Gracias por participar en el experimento y contribuir con la ciencia!</p>
+    <center><p>¡Gracias por participar en el experimento y contribuir con la ciencia!</p></center>
   </div>
   <div class="col">
-    <img src="{% static 'img/despedida.gif' %}" alt="LEE">
-    <hr>
+    <center><img src="{% static 'img/lee.png' %}" alt="LEE" style="width: 400px;"></center>
+    <div style="display: flex; justify-content: center;">
+      <img src="{% static 'img/espollogo.png' %}" alt="ESPOL" style="width: 300px;">
+      <img src="{% static 'img/LogoUSFQ.png' %}" alt="USFQ" style="width: 300px;">
+    </div>
   </div>
+  <hr>
   <div class="col">
-    <p>Por favor espere para recibir instrucciones y ser llamado a recibir su pago.</p>
+    <center><p>Por favor espere para recibir instrucciones.</p></center>
   </div>
 
 </div>
+
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+    .otree-body {
+      max-width: 95%;
+      margin-top: 40px
+    }
+  </style>
 
 {% endblock %}
