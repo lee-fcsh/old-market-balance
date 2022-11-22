@@ -15,7 +15,7 @@ Prueba del tiempo real de el mercado
 class Constants(BaseConstants):
     name_in_url = 'tratamientos_mercados'
     players_per_group = None
-    num_rounds = 10
+    num_rounds = 3
 
     ganancias_template = 'tratamientos_mercados/Ganancias.html'
     ganancias_template2 = 'tratamientos_mercados/Ganancias_etapa1.html'
@@ -42,7 +42,7 @@ class Subsession(BaseSubsession):
 
         # fixme aqui debe ser cuantos mercados se van a formar
         jugadores = self.get_players()
-        numero_participantes_tratamientos = [10,10,10,20]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
+        numero_participantes_tratamientos = [0,0,0,4]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
 
 
 
