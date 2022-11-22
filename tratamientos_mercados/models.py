@@ -42,7 +42,7 @@ class Subsession(BaseSubsession):
 
         # fixme aqui debe ser cuantos mercados se van a formar
         jugadores = self.get_players()
-        numero_participantes_tratamientos = [0,0,0,4]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
+        numero_participantes_tratamientos = [0,0,12,12]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
 
         for p in range(1, len(jugadores)+1):
             while (len(new_structure[Constants.tratamientos[id]]) == numero_participantes_tratamientos[Constants.tratamientos[id]]):
