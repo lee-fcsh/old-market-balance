@@ -15,7 +15,7 @@ Prueba del tiempo real de el mercado
 class Constants(BaseConstants):
     name_in_url = 'tratamientos_mercados'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 10
 
     ganancias_template = 'tratamientos_mercados/Ganancias.html'
     ganancias_template2 = 'tratamientos_mercados/Ganancias_etapa1.html'

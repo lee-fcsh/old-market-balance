@@ -9,8 +9,6 @@ author = 'Luis Andrade'
 doc = """
 App para mostrar el mensaje de bienvenida General para sesiones con múltiples apps.
 """
-# funcion para generar diccionario de ips, las claves son indices del 194 al 228,
-# los valores, números del 1 al 35 respectivamente
 
 
 class Constants(BaseConstants):
@@ -21,10 +19,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-
-    def creating_session(self):
-        # se guarda el diccionario de ip's como variable de sesión
-        print('nombre de sesion: ', self.session.config['name'])
+    pass
 
 
 class Group(BaseGroup):
@@ -32,6 +27,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    
-    matricula = models.PositiveIntegerField(min=199000000, max=Constants.anio_max)
+    matricula = models.StringField(label='Matrícula')
 
