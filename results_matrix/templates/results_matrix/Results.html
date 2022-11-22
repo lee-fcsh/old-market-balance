@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    A continuación se especifica las ganancias de cada etapa de la sesión:
+    A continuación se detallan sus ganancias durante el experimento:
 
     <table class="table">
         <thead>
@@ -20,12 +20,9 @@
 
         <tr class="table-success">
             <th scope="row">1</th>
-            <td>Participar en la sesión</td>
+            <td>Participación en la sesión</td>
             <td> {{ session.participation_fee }}</td>
         </tr>
-
-
-
 
         <tr>
             <th scope="row">2</th>
@@ -37,8 +34,6 @@
             <td>{{ opciones.trust_game.label }}</td>
             <td> {{ opciones.trust_game.payoff }}</td>
         </tr>
-
-
 
         <tr class="table-primary">
             <th scope="row"></th>

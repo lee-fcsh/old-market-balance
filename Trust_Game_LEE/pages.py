@@ -52,7 +52,7 @@ class Results(Page):
         ########### CALCULO DE PAYOFF A PARTICIPANTE POR CADA APP #####################################
         self.participant.vars['dict_results'] = (self.participant.vars).get('dict_results', {})
         self.participant.vars['dict_results']['trust_game'] =dict(
-            label='Trust Game',
+            label='Etapa 3',
             payoff=0
         )
         for round in range(1, Constants.num_rounds+1):
