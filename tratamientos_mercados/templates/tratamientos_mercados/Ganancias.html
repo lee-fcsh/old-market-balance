@@ -18,7 +18,6 @@
     </div>
 </div>
 
-
 <div class="card-body">
     <div>
         <h3>
@@ -28,8 +27,7 @@
         <div>
             <div>
                 <p>
-                    Las ganancias en cada ronda dependen de sus decisiones y las de su contraparte y se calculan de la
-                    siguiente forma:
+                    Las ganancias en cada ronda dependen de sus decisiones y las de su contraparte y se calculan de la siguiente forma:
                 </p>
             </div>
             <table id="table_ganancias">
@@ -55,7 +53,7 @@
                                 <div style="padding: 1em;">
                                     <b>
                                         GANANCIA DEL VENDEDOR = <span class="badge bg-primary" style="color: white;">P – COSTO DE PRODUCCIÓN – c</span> <br>
-                                        GANANCIA DEL COMPRADOR = <span class="badge bg-primary" style="color: white;">PRESUPUESTO – P – d*c</span>
+                                        GANANCIA DEL COMPRADOR = <span class="badge bg-primary" style="color: white;">PRESUPUESTO – P – {{ Constants.valor_d }}*c</span>
     
                                     </b>
                                 </div>
@@ -89,7 +87,7 @@
                             <div style="padding: 1em;">
                                 <b>
                                     GANANCIA DEL COMPRADOR = <span class="badge bg-primary" style="color: white;">PRESUPUESTO – P – c</span> <br>
-                                    GANANCIA DEL VENDEDOR = <span class="badge bg-primary" style="color: white;">P – COSTO DE PRODUCCIÓN – d*c</span>
+                                    GANANCIA DEL VENDEDOR = <span class="badge bg-primary" style="color: white;">P – COSTO DE PRODUCCIÓN – {{ Constants.valor_d }}*c</span>
         
                                 </b>
                             </div>

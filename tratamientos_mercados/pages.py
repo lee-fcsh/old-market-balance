@@ -23,7 +23,7 @@ class Introduccion0(Page):
             texto3 = '$ c'
         else:
             texto2 = f'El COSTO (c) de contratar un mediador es un porcentaje fijo ({Constants.valor_porcentual_abogado * 100}%) del valor asignado a cada participante.'
-            texto3 = ' c= k% del valor asignado'
+            texto3 = f' c=  {Constants.valor_porcentual_abogado*100}% del valor asignado'
 
         return{
             'texto1' : texto1,

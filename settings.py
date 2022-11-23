@@ -7,6 +7,8 @@ from os import environ
 
 ADMIN_USERNAME = 'admin'
 
+# environ['DATABASE_URL'] = 'postgres://lee_database_6ccy_user:BS0lVfjohKise6AczZgsCwS7cJFWlbzp@dpg-cdupcc5a49967v6ddeag-a.oregon-postgres.render.com/lee_database_6ccy'
+
 SESSION_CONFIG_DEFAULTS = dict(
    participants_treatment_n3=0, participants_treatment_n4=0,
    participants_treatment_n5=6, participants_treatment_n6=6,
