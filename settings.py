@@ -8,7 +8,9 @@ from os import environ
 ADMIN_USERNAME = 'admin'
 
 SESSION_CONFIG_DEFAULTS = dict(
-   real_world_currency_per_point=1.00, participation_fee=2.50, doc=""
+   participants_treatment_n3=0, participants_treatment_n4=0,
+   participants_treatment_n5=6, participants_treatment_n6=6,
+   real_world_currency_per_point=1.00, participation_fee=2.50, doc="Market Balance",
 )
 
 SESSION_CONFIGS = [
@@ -26,7 +28,7 @@ SESSION_CONFIGS = [
     ),
     dict(
        name='leetest',
-       display_name="TEST GAME",
+       display_name="Test Game",
        num_demo_participants=2,
        app_sequence=['tratamientos_mercados']
     )
