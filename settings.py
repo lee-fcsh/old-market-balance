@@ -32,7 +32,7 @@ SESSION_CONFIGS = [
        name='leetest',
        display_name="Test Game",
        num_demo_participants=2,
-       app_sequence=['tratamientos_mercados']
+       app_sequence=['Bienvenida_v2']
     )
 ]
 
