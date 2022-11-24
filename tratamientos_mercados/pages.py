@@ -63,7 +63,7 @@ class Prev_negociacion(WaitPage):
     pass
 
 class Auction(Page):
-    timeout_seconds = 300
+    timeout_seconds = 180
     def vars_for_template(self):
         compradores = []
         vendedores = []
