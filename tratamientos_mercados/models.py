@@ -39,13 +39,13 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         new_structure = [[], [], [], []]
         id = 0
+        n_participants_n2 = int(self.session.config['participants_treatment_n2'])
         n_participants_n3 = int(self.session.config['participants_treatment_n3'])
-        n_participants_n4 = int(self.session.config['participants_treatment_n4'])
         n_participants_n5 = int(self.session.config['participants_treatment_n5'])
         n_participants_n6 = int(self.session.config['participants_treatment_n6'])
         # fixme aqui debe ser cuantos mercados se van a formar
         jugadores = self.get_players()
-        numero_participantes_tratamientos = [n_participants_n3, n_participants_n4, n_participants_n5, n_participants_n6]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
+        numero_participantes_tratamientos = [n_participants_n2, n_participants_n5, n_participants_n3, n_participants_n6]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
 
         for p in range(1, len(jugadores)+1):
             while (len(new_structure[Constants.tratamientos[id]]) == numero_participantes_tratamientos[Constants.tratamientos[id]]):
