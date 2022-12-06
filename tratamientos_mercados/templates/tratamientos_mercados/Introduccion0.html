@@ -17,13 +17,15 @@
             <br><br>
             Todas las rondas de negociación de esta etapa <b>incluyen la opción de renegar la transacción.</b><br> <br>
 
+            {% if group.id_in_subsession == 2 or group.id_in_subsession == 3 %}
             Además de las decisiones previas, en esta etapa usted tendrá la oportunidad de <b>CONTRATAR UN MEDIADOR,</b>
             cuyo rol se describe a continuación. <br><br>
-
+            {% endif %}
             Usted tiene maximo 3 minutos por ronda para tomar una decisión.
         </p>
     </div>
     <br>
+    {% if group.id_in_subsession == 2 or group.id_in_subsession == 3 %}
     <div class="card bg-light instructions" style="padding: 1em;text-align: justify;">
         <div>
             <h3>
@@ -74,6 +76,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <br>
 </div>
 

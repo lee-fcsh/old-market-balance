@@ -22,7 +22,7 @@ class Constants(BaseConstants):
 
     tratamientos = [0, 1, 2, 3]
 
-    valor_fijo_abogado = 2
+    valor_fijo_abogado = 0
     valor_porcentual_abogado = 0.10
     valor_d = 1.1
 

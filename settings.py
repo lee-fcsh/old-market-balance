@@ -11,7 +11,7 @@ ADMIN_USERNAME = 'admin'
 
 SESSION_CONFIG_DEFAULTS = dict(
    participants_treatment_n2=0, participants_treatment_n3=0,
-   participants_treatment_n5=6, participants_treatment_n6=6,
+   participants_treatment_n5=0, participants_treatment_n6=6,
    real_world_currency_per_point=1.00, participation_fee=2.50, doc="Market Balance",
 )
 
@@ -23,16 +23,10 @@ SESSION_CONFIGS = [
        app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE', 'results_matrix', 'caution_form','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
     dict(
-       name='Session1',
-       display_name="Cuestionarios (P2)",
-       num_demo_participants=2,
-       app_sequence=['Welcome2', 'Bienvenida_v2','bret','mpl_para_tiempoV2','Trust_Game_LEE','cuestionario_IDB','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
-    ),
-    dict(
        name='leetest',
        display_name="Test Game",
-       num_demo_participants=2,
-       app_sequence=['Bienvenida_v2']
+       num_demo_participants=4,
+       app_sequence=['tratamientos_mercados']
     )
 ]
 

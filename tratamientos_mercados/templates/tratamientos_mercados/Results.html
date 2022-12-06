@@ -45,11 +45,13 @@
                     <td> {{ renegar }} </td>
                     <td> {{renegar_contraparte}} </td>
                 </tr>
+                {% if group.id_in_subsession == 2 or group.id_in_subsession == 3 %}
                 <tr>
                     <td>Mediador</td>
                     <td style="text-transform: uppercase;"> {{ mediador }} </td>
                     <td style="text-transform: uppercase;"> {{mediador_contraparte}} </td>
                 </tr>
+                {% endif %}
                 <tr class="table-success">
                     <td>Ganancias en esta ronda</td>
                     <td> {{ganancia|floatformat:2}} </td>

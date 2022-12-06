@@ -105,7 +105,9 @@ class Auction(Page):
 
 class Abogado(Page):
     def is_displayed(self):
-        return self.player.valor_venta != None
+        if self.group.id_in_subsession == 0 or self.group.id_in_subsession == 1:
+            self.player.abogado = 'No'
+        return self.player.valor_venta != None and (self.group.id_in_subsession == 2 or self.group.id_in_subsession == 3)
 
     form_model = 'player'
     form_fields = ['abogado']
