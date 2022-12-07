@@ -54,13 +54,12 @@ class Subsession(BaseSubsession):
             n_tratamiento = Constants.tratamientos[id]
             if len(new_structure[n_tratamiento]) < numero_participantes_tratamientos[n_tratamiento]:
                 new_structure[n_tratamiento].append(p)
-
         self.set_group_matrix(new_structure)
         # print(self.get_group_matrix()) # will output this:
         letraC = 1   # IDENTIFICADOR DEL COMPRADOR
         letraV = 1   # IDENTIFICADOR DEL VENDEDOR
         for g in self.get_groups():
-            g.id_in_subsession = g.id_in_subsession - 1
+            # g.id_in_subsession = g.id_in_subsession - 1
             for p in g.get_players():
                 if p.role() == 'vendedor':
                     p.identificador = "V" + str(letraV)
@@ -82,7 +81,7 @@ class Subsession(BaseSubsession):
                 n_compradores_L = numero_compradores // 2
                 n_compradores_H = numero_compradores - n_compradores_L
 
-                if g.id_in_subsession == 1 or g.id_in_subsession == 3:
+                if g.id_in_subsession == 2 or g.id_in_subsession == 4:
                     for p in g.get_players():
                         # ASIGNACION EXACTA DE H Y L
                         while True:

@@ -10,8 +10,8 @@ ADMIN_USERNAME = 'admin'
 # environ['DATABASE_URL'] = 'postgres://lee_database_6ccy_user:BS0lVfjohKise6AczZgsCwS7cJFWlbzp@dpg-cdupcc5a49967v6ddeag-a.oregon-postgres.render.com/lee_database_6ccy'
 
 SESSION_CONFIG_DEFAULTS = dict(
-   participants_treatment_n2=0, participants_treatment_n3=0,
-   participants_treatment_n5=0, participants_treatment_n6=6,
+   participants_treatment_n2=6, participants_treatment_n3=0,
+   participants_treatment_n5=0, participants_treatment_n6=0,
    real_world_currency_per_point=1.00, participation_fee=2.50, doc="Market Balance",
 )
 
@@ -25,7 +25,7 @@ SESSION_CONFIGS = [
     dict(
        name='leetest',
        display_name="Test Game",
-       num_demo_participants=4,
+       num_demo_participants=6,
        app_sequence=['tratamientos_mercados']
     )
 ]
