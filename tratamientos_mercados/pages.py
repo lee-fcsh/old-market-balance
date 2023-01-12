@@ -195,9 +195,9 @@ class RenegarWaitPage(WaitPage):
                                         p1.ganancia = p1.valor_venta - p1.carta - costo_abogado
                                     elif p2.aceptar_proceso == 'Aceptar' and p2.abogado == 'Si':    # P2 ACEPTO Y TIENE ABOGADO
                                         p1.ganancia = p1.valor_venta - p1.carta - costo_abogado
-                                
 
-                                
+
+
                 ################### SI EL JUGADOR ES COMPRADOR   ##########################
                 elif p1.role() == 'comprador':
                     for p2 in self.group.get_players():    # BUSCAMOS CON  QUIEN HIZO MATCH
