@@ -13,7 +13,7 @@ class Introduccion0(Page):
         return self.round_number == 1
 
     def vars_for_template(self):
-        if self.group.id_in_subsession == 1 or self.group.id_in_subsession == 3:
+        if self.group.id_in_subsession in Constants.ids_subsession_NO_varian_cartas:
             texto1 = 'Asimismo, mantendrá el mismo valor (costo de producción o presupuesto) en cada ronda.'
         else:
             texto1 = 'Sin embargo, usted enfrentará un valor (costo de producción o presupuesto) distinto en cada ronda de negociación.'
@@ -33,7 +33,7 @@ class Introduccion0(Page):
 
 class Ganancia_ronda0(Page):
     def is_displayed(self):
-        return self.round_number == 1
+        return self.round_number == 1 and self.group.id_in_subsession not in Constants.ids_subsession_base
 
 ##############################################################################################
 
@@ -105,15 +105,15 @@ class Auction(Page):
 
 class Abogado(Page):
     def is_displayed(self):
-        if self.group.id_in_subsession == 1 or self.group.id_in_subsession == 2:
+        if self.group.id_in_subsession not in Constants.ids_subsession_abogado:
             self.player.abogado = 'No'
-        return self.player.valor_venta != None and (self.group.id_in_subsession == 3 or self.group.id_in_subsession == 4)
+        return self.player.valor_venta != None and (self.group.id_in_subsession in Constants.ids_subsession_abogado)
 
     form_model = 'player'
     form_fields = ['abogado']
 
     def vars_for_template(self):
-        if self.group.id_in_subsession == 1 or self.group.id_in_subsession == 2:
+        if self.group.id_in_subsession not in Constants.ids_subsession_abogado:
                 costo_abogado = Constants.valor_fijo_abogado
         else:
             costo_abogado = Constants.valor_porcentual_abogado * self.player.carta
@@ -128,7 +128,9 @@ class Abogado(Page):
 
 class Renegar(Page):
     def is_displayed(self):
-        return self.player.valor_venta != None
+        if self.group.id_in_subsession in Constants.ids_subsession_base:
+            self.player.aceptar_proceso = 'Aceptar'
+        return self.player.valor_venta != None and self.group.id_in_subsession not in Constants.ids_subsession_base
 
     form_model = 'player'
     form_fields = ['aceptar_proceso']
@@ -157,7 +159,7 @@ class Renegar(Page):
 class RenegarWaitPage(WaitPage):
     def after_all_players_arrive(self):
         for p1 in self.group.get_players():    # RECORREMOS TODOS LOS JUGADORES PARA ANALIZAR
-            if self.group.id_in_subsession == 1 or self.group.id_in_subsession == 2:
+            if self.group.id_in_subsession not in Constants.ids_subsession_abogado:
                 costo_abogado = Constants.valor_fijo_abogado
             else:
                 costo_abogado = Constants.valor_porcentual_abogado * p1.carta

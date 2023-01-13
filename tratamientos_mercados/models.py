@@ -20,7 +20,7 @@ class Constants(BaseConstants):
     ganancias_template = 'tratamientos_mercados/Ganancias.html'
     ganancias_template2 = 'tratamientos_mercados/Ganancias_etapa1.html'
 
-    tratamientos = [0, 1, 2, 3]
+    tratamientos = [0, 1, 2, 3, 4, 5]
 
     valor_fijo_abogado = 0
     valor_porcentual_abogado = 0.10
@@ -34,18 +34,28 @@ class Constants(BaseConstants):
     tipo_compradores = ['L', 'L', 'H']
     tipo_vendedores = ['H', 'H', 'L']
 
+    # Tratamientos que varian las cartas en cada ronda
+    ids_subsession_varian_cartas = [2, 4, 6]
+    ids_subsession_NO_varian_cartas = [1, 3, 5]
+
+    ids_subsession_base = [5, 6]
+    ids_subsession_renegar = [1, 2]
+    ids_subsession_abogado = [3, 4]
+
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        new_structure = [[], [], [], []]
+        new_structure = [[], [], [], [], [], []]
         id = 0
+        n_participants_n1 = int(self.session.config['participants_treatment_n1'])
         n_participants_n2 = int(self.session.config['participants_treatment_n2'])
         n_participants_n3 = int(self.session.config['participants_treatment_n3'])
+        n_participants_n4 = int(self.session.config['participants_treatment_n4'])
         n_participants_n5 = int(self.session.config['participants_treatment_n5'])
         n_participants_n6 = int(self.session.config['participants_treatment_n6'])
         # fixme aqui debe ser cuantos mercados se van a formar
         jugadores = self.get_players()
-        numero_participantes_tratamientos = [n_participants_n2, n_participants_n5, n_participants_n3, n_participants_n6]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
+        numero_participantes_tratamientos = [n_participants_n2, n_participants_n5, n_participants_n3, n_participants_n6, n_participants_n1, n_participants_n4]  #SUMA DE LA LISTA DEBE SER EL NUMERO DE PARTICIPANTES
 
         for p in range(1, len(jugadores)+1):
             while (len(new_structure[Constants.tratamientos[id]]) == numero_participantes_tratamientos[Constants.tratamientos[id]]):
@@ -54,12 +64,12 @@ class Subsession(BaseSubsession):
             n_tratamiento = Constants.tratamientos[id]
             if len(new_structure[n_tratamiento]) < numero_participantes_tratamientos[n_tratamiento]:
                 new_structure[n_tratamiento].append(p)
+        print(new_structure)
         self.set_group_matrix(new_structure)
         # print(self.get_group_matrix()) # will output this:
         letraC = 1   # IDENTIFICADOR DEL COMPRADOR
         letraV = 1   # IDENTIFICADOR DEL VENDEDOR
         for g in self.get_groups():
-            # g.id_in_subsession = g.id_in_subsession - 1
             for p in g.get_players():
                 if p.role() == 'vendedor':
                     p.identificador = "V" + str(letraV)
@@ -81,7 +91,7 @@ class Subsession(BaseSubsession):
                 n_compradores_L = numero_compradores // 2
                 n_compradores_H = numero_compradores - n_compradores_L
 
-                if g.id_in_subsession == 2 or g.id_in_subsession == 4:
+                if g.id_in_subsession in Constants.ids_subsession_varian_cartas:
                     for p in g.get_players():
                         # ASIGNACION EXACTA DE H Y L
                         while True:

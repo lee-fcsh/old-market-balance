@@ -40,12 +40,14 @@
                     <td> {{player.tipo_valor}} </td>
                     <td> {{agente_contraparte}} </td>
                 </tr>
+                {% if group.id_in_subsession not in Constants.ids_subsession_base %}
                 <tr>
                     <td>Renegar</td>
                     <td> {{ renegar }} </td>
                     <td> {{renegar_contraparte}} </td>
                 </tr>
-                {% if group.id_in_subsession == 3 or group.id_in_subsession == 4 %}
+                {% endif %}
+                {% if group.id_in_subsession in Constants.ids_subsession_abogado %}
                 <tr>
                     <td>Mediador</td>
                     <td style="text-transform: uppercase;"> {{ mediador }} </td>

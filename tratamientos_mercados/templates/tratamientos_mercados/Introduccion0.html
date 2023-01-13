@@ -11,13 +11,12 @@
             etapa 1. <br><br> 
             <b>Las ganancias en esta etapa son el resultado de elegir aleatoriamente UNA de las rondas, y forman parte de las ganancias totales del experimento.</b><br><br>
 
-            El presupuesto/costo de producción, según su rol, cambia en cada ronda.
-
             <b>Usted mantendrá el mismo rol asignado en todas las rondas. {{texto1}}</b>
             <br><br>
+            {% if group.id_in_subsession not in Constants.ids_subsession_base %}
             Todas las rondas de negociación de esta etapa <b>incluyen la opción de renegar la transacción.</b><br> <br>
-
-            {% if group.id_in_subsession == 3 or group.id_in_subsession == 4 %}
+            {% endif %}
+            {% if group.id_in_subsession in Constants.ids_subsession_abogado %}
             Además de las decisiones previas, en esta etapa usted tendrá la oportunidad de <b>CONTRATAR UN MEDIADOR,</b>
             cuyo rol se describe a continuación. <br><br>
             {% endif %}
@@ -25,7 +24,7 @@
         </p>
     </div>
     <br>
-    {% if group.id_in_subsession == 3 or group.id_in_subsession == 4 %}
+    {% if group.id_in_subsession in Constants.ids_subsession_abogado %}
     <div class="card bg-light instructions" style="padding: 1em;text-align: justify;">
         <div>
             <h3>
