@@ -14,7 +14,7 @@ Prueba del tiempo real de el mercado
 
 class Constants(BaseConstants):
     name_in_url = 'market_equilibrio'
-    players_per_group = None
+    players_per_group = 6
     num_rounds = 6 
 
     # Valores de las cartas para el mercado
