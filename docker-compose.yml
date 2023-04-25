@@ -1,6 +1,6 @@
 version: '3.8'
 
-name: lee
+name: market-balance
 
 services:
   postgres:
@@ -20,6 +20,6 @@ services:
       DATABASE_URL: postgresql://otreedb:postgres@postgres/lee
       OTREE_PRODUCTION: 1
       OTREE_AUTH_LEVEL: STUDY
-      OTREE_ADMIN_PASSWORD: admin
+      OTREE_ADMIN_PASSWORD: 151418
     ports:
-      - "8000:8000"
+      - "80:8000"

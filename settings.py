@@ -5,7 +5,6 @@ from os import environ
 # the session config can be accessed from methods in your apps as self.session.config,
 # e.g. self.session.config['participation_fee']
 
-ADMIN_USERNAME = 'admin'
 
 # environ['DATABASE_URL'] = 'postgres://lee_database_6ccy_user:BS0lVfjohKise6AczZgsCwS7cJFWlbzp@dpg-cdupcc5a49967v6ddeag-a.oregon-postgres.render.com/lee_database_6ccy'
 
@@ -50,7 +49,7 @@ USE_POINTS = False
 
 ROOMS = []
 
-ADMIN_USERNAME = 'admin'
+ADMIN_USERNAME = 'admin_lee'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
