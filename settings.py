@@ -10,7 +10,7 @@ ADMIN_USERNAME = 'admin'
 # environ['DATABASE_URL'] = 'postgres://lee_database_6ccy_user:BS0lVfjohKise6AczZgsCwS7cJFWlbzp@dpg-cdupcc5a49967v6ddeag-a.oregon-postgres.render.com/lee_database_6ccy'
 
 SESSION_CONFIG_DEFAULTS = dict(
-   participants_treatment_n1=4, participants_treatment_n4=0,
+   participants_treatment_n1=6, participants_treatment_n4=0,
    participants_treatment_n2=0, participants_treatment_n5=0,
    participants_treatment_n3=0, participants_treatment_n6=0,
    real_world_currency_per_point=1.00, participation_fee=2.50, doc="Market Balance",
@@ -20,21 +20,21 @@ SESSION_CONFIGS = [
     dict(
        name='market',
        display_name="Equilibrio de Mercado (Live)",
-       num_demo_participants=2,
+       num_demo_participants=6,
        app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE', 'results_matrix', 'caution_form','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
-    dict(
-       name='leetest',
-       display_name="Test Game",
-       num_demo_participants=2,
-       app_sequence=['tratamientos_mercados']
-    ),
-    dict(
-       name='leetest2',
-       display_name="Test Game 2",
-       num_demo_participants=2,
-       app_sequence=['market_equilibrio']
-    )
+   #  dict(
+   #     name='leetest',
+   #     display_name="Test Game",
+   #     num_demo_participants=2,
+   #     app_sequence=['tratamientos_mercados']
+   #  ),
+   #  dict(
+   #     name='leetest2',
+   #     display_name="Test Game 2",
+   #     num_demo_participants=2,
+   #     app_sequence=['market_equilibrio']
+   #  )
 ]
 
 

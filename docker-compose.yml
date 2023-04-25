@@ -1,0 +1,25 @@
+version: '3.8'
+
+name: lee
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:15
+    environment:
+      POSTGRES_USER: otreedb
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: lee
+    ports:
+      - "5432:5432"
+
+  otree:
+    container_name: otree
+    build: .
+    environment:
+      DATABASE_URL: postgresql://otreedb:postgres@postgres/lee
+      OTREE_PRODUCTION: 1
+      OTREE_AUTH_LEVEL: STUDY
+      OTREE_ADMIN_PASSWORD: admin
+    ports:
+      - "8000:8000"
