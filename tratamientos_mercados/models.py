@@ -64,7 +64,7 @@ class Subsession(BaseSubsession):
             n_tratamiento = Constants.tratamientos[id]
             if len(new_structure[n_tratamiento]) < numero_participantes_tratamientos[n_tratamiento]:
                 new_structure[n_tratamiento].append(p)
-        print(new_structure)
+        # print(new_structure)
         self.set_group_matrix(new_structure)
         # print(self.get_group_matrix()) # will output this:
         letraC = 1   # IDENTIFICADOR DEL COMPRADOR
@@ -95,7 +95,7 @@ class Subsession(BaseSubsession):
                     for p in g.get_players():
                         # ASIGNACION EXACTA DE H Y L
                         while True:
-                            p.in_round(r).elegir_Carta()
+                            p.in_round(r).elegir_carta_unica(r)
                             if p.role() == 'vendedor':
                                 if p.in_round(r).tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
                                     n_vendedores_H-=1
@@ -104,7 +104,7 @@ class Subsession(BaseSubsession):
                                     n_vendedores_L-=1
                                     break
                                 else:
-                                    continue  
+                                    continue
                             else:
                                 if p.in_round(r).tipo_valor == 'H' and n_compradores_H - 1 >= 0:
                                     n_compradores_H-=1
@@ -113,12 +113,12 @@ class Subsession(BaseSubsession):
                                     n_compradores_L-=1
                                     break
                                 else:
-                                    continue 
+                                    continue
                 else:
                     for p in g.get_players():
                         # ASIGNACION EXACTA DE H Y L
                         while True:
-                            p.elegir_Carta()
+                            p.elegir_carta_unica()
                             if p.role() == 'vendedor':
                                 if p.tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
                                     n_vendedores_H-=1
@@ -177,8 +177,7 @@ class Player(BasePlayer):
     )
 
     ##########################  CARTA Y PRECIO   ################################
-    def elegir_Carta(self):
-
+    def elegir_carta_unica(self):
         i_num_v = randint(0, len(Constants.cartas_vendedores) - 1)
         i_num_c = randint(0, len(Constants.cartas_compradores) - 1)
         num_v = Constants.cartas_vendedores[i_num_v]
@@ -191,3 +190,4 @@ class Player(BasePlayer):
         elif self.role() == 'vendedor':
             self.carta = num_v
             self.tipo_valor = Constants.tipo_vendedores[i_num_v]
+

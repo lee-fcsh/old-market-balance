@@ -27,16 +27,16 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     
-    c4_pregunta_1 = models.PositiveIntegerField(min=15, verbose_name="1)\t¿Cuál es su edad?")#edad
+    c4_pregunta_1 = models.PositiveIntegerField(min=15, verbose_name="1)\t¿Cuál es su edad?")
     c4_p2_op = ("Masculino", "Femenino")
     c4_pregunta_2 = models.CharField(choices=c4_p2_op, widget=widgets.RadioSelectHorizontal(),verbose_name = "2)\t¿Cuál es su género?")
-    c4_p3_op = ("Centro de Guayaquil", "Sur de Guayaquil", "Norte de Guayaquil", "Otra Ciudad")#vivienda
+    c4_p3_op = ("Norte", "Sur", "Centro", "Valles", "Ciudades Aledañas")
     c4_pregunta_3 = models.CharField(choices=c4_p3_op, verbose_name = "3)\t¿Dónde vive?")
     c4_p4_op = ("Casa Propia", "Departamento Propio", "Arrienda Casa", "Arrienda Departamento", "Casa familiar", "Renta Cuarto")
     c4_pregunta_4 = models.CharField(choices=c4_p4_op, verbose_name = "4)\t¿En qué tipo de residencia vive?")#tipo residencia
     c4_p5_op = ("Estudiar", "Trabajar")
     c4_pregunta_5 = models.CharField(choices=c4_p5_op, verbose_name = "5)\t¿Cuál ha sido su principal ocupación durante los últimos 12 meses? La principal ocupación se define como el tipo de ocupación donde se gasta la mayor parte de su tiempo de trabajo.")
-    c4_p6_op = (("Pobre", "Menos de US$ 364"), ("Media Baja", "Entre US$ 365 y US$ 600"), ("Media", "Entre US$ 601 y US$ 1000"), ("Media Alta", "Entre US$ 1000 y US$ 1600"), ("Alta", "Más de US$ 1601"))
+    c4_p6_op = (("Pobre", "Menos de US$ 450"), ("Media Baja", "Entre US$ 450 y US$ 900"), ("Media", "Entre US$ 901 y US$ 1350"), ("Media Alta", "Entre US$ 1350 y US$ 2250"), ("Alta", "Más de US$ 2250"))
     c4_pregunta_6 = models.CharField(choices=c4_p6_op, verbose_name = "6)\t¿Aproximadamente cuánto es el ingreso familiar en su hogar?")
     c4_pregunta_7 = models.BooleanField(widget=widgets.RadioSelectHorizontal(), verbose_name = ("7)\t¿Ha adquirido usted algún producto o servicio a crédito por lo cual esté actualmente pagando su valor?"))
     c4_pregunta_8 = models.BooleanField(widget=widgets.RadioSelectHorizontal(), verbose_name = "8)\t¿Tiene y usa usted tarjeta de crédito?")
