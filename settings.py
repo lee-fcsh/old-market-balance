@@ -23,10 +23,10 @@ SESSION_CONFIGS = [
        app_sequence=['Welcome2', 'Bienvenida_v2','market_equilibrio', 'tratamientos_mercados','Trust_Game_LEE', 'results_matrix', 'caution_form','cuest_aversion_al_riesgo','cuest_demografico','Goodbye']
     ),
     dict(
-       name='tratamientos_mercados',
-       display_name="tratamientos_mercados",
+       name='market_equilibrio',
+       display_name="market_equilibrio",
        num_demo_participants=6,
-       app_sequence=['tratamientos_mercados']
+       app_sequence=['market_equilibrio']
     ),
 ]
 

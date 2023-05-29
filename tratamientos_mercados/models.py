@@ -95,7 +95,7 @@ class Subsession(BaseSubsession):
                     for p in g.get_players():
                         # ASIGNACION EXACTA DE H Y L
                         while True:
-                            p.in_round(r).elegir_carta_unica(r)
+                            p.in_round(r).elegir_carta_unica()
                             if p.role() == 'vendedor':
                                 if p.in_round(r).tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
                                     n_vendedores_H-=1
