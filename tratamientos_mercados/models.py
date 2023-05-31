@@ -28,8 +28,10 @@ class Constants(BaseConstants):
 
 
     # Valores de las cartas para el mercado
+
     cartas_compradores = [6, 8, 10]
     cartas_vendedores = [1, 3, 5]
+
 
     tipo_compradores = ['L', 'L', 'H']
     tipo_vendedores = ['H', 'H', 'L']
@@ -44,8 +46,10 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
+
     def creating_session(self):
         new_structure = [[], [], [], [], [], []]
+
         id = 0
         n_participants_n1 = int(self.session.config['participants_treatment_n1'])
         n_participants_n2 = int(self.session.config['participants_treatment_n2'])
@@ -70,6 +74,7 @@ class Subsession(BaseSubsession):
         letraC = 1   # IDENTIFICADOR DEL COMPRADOR
         letraV = 1   # IDENTIFICADOR DEL VENDEDOR
         for g in self.get_groups():
+
             for p in g.get_players():
                 if p.role() == 'vendedor':
                     p.identificador = "V" + str(letraV)
@@ -91,52 +96,60 @@ class Subsession(BaseSubsession):
                 n_compradores_L = numero_compradores // 2
                 n_compradores_H = numero_compradores - n_compradores_L
 
+                container = []   
+
                 if g.id_in_subsession in Constants.ids_subsession_varian_cartas:
+
                     for p in g.get_players():
+                        if len(container) == 6:
+                            container = []
                         # ASIGNACION EXACTA DE H Y L
-                        while True:
-                            p.in_round(r).elegir_carta_unica()
-                            if p.role() == 'vendedor':
-                                if p.in_round(r).tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
-                                    n_vendedores_H-=1
-                                    break
-                                elif p.in_round(r).tipo_valor == 'L' and n_vendedores_L - 1 >= 0:
-                                    n_vendedores_L-=1
-                                    break
-                                else:
-                                    continue
-                            else:
-                                if p.in_round(r).tipo_valor == 'H' and n_compradores_H - 1 >= 0:
-                                    n_compradores_H-=1
-                                    break
-                                elif p.in_round(r).tipo_valor == 'L' and n_compradores_L - 1 >= 0:
-                                    n_compradores_L-=1
-                                    break
-                                else:
-                                    continue
+                        p.in_round(r).elegir_carta_unica(container)
+                        # while True:
+                            # if p.role() == 'vendedor':
+                            #     if p.in_round(r).tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
+                            #         n_vendedores_H-=1
+                            #         break
+                            #     elif p.in_round(r).tipo_valor == 'L' and n_vendedores_L - 1 >= 0:
+                            #         n_vendedores_L-=1
+                            #         break
+                            #     else:
+                            #         continue
+                            # else:
+                            #     if p.in_round(r).tipo_valor == 'H' and n_compradores_H - 1 >= 0:
+                            #         n_compradores_H-=1
+                            #         break
+                            #     elif p.in_round(r).tipo_valor == 'L' and n_compradores_L - 1 >= 0:
+                            #         n_compradores_L-=1
+                            #         break
+                            #     else:
+                            #         continue
                 else:
                     for p in g.get_players():
                         # ASIGNACION EXACTA DE H Y L
-                        while True:
-                            p.elegir_carta_unica()
-                            if p.role() == 'vendedor':
-                                if p.tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
-                                    n_vendedores_H-=1
-                                    break
-                                elif p.tipo_valor == 'L' and n_vendedores_L - 1 >= 0:
-                                    n_vendedores_L-=1
-                                    break
-                                else:
-                                    continue  
-                            else:
-                                if p.tipo_valor == 'H' and n_compradores_H - 1 >= 0:
-                                    n_compradores_H-=1
-                                    break
-                                elif p.tipo_valor == 'L' and n_compradores_L - 1 >= 0:
-                                    n_compradores_L-=1
-                                    break
-                                else:
-                                    continue 
+                        if len(container) == 6:
+                            container = []
+
+                        p.elegir_carta_unica(container)
+                        # while True:
+                        #     if p.role() == 'vendedor':
+                        #         if p.tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
+                        #             n_vendedores_H-=1
+                        #             break
+                        #         elif p.tipo_valor == 'L' and n_vendedores_L - 1 >= 0:
+                        #             n_vendedores_L-=1
+                        #             break
+                        #         else:
+                        #             continue  
+                        #     else:
+                        #         if p.tipo_valor == 'H' and n_compradores_H - 1 >= 0:
+                        #             n_compradores_H-=1
+                        #             break
+                        #         elif p.tipo_valor == 'L' and n_compradores_L - 1 >= 0:
+                        #             n_compradores_L-=1
+                        #             break
+                        #         else:
+                        #             continue 
 
                         for ronda in p.in_all_rounds():
                             ronda.carta = p.in_all_rounds()[0].carta
@@ -177,17 +190,30 @@ class Player(BasePlayer):
     )
 
     ##########################  CARTA Y PRECIO   ################################
-    def elegir_carta_unica(self):
+    def elegir_carta_unica(self, container):
+
         i_num_v = randint(0, len(Constants.cartas_vendedores) - 1)
         i_num_c = randint(0, len(Constants.cartas_compradores) - 1)
         num_v = Constants.cartas_vendedores[i_num_v]
         num_c = Constants.cartas_compradores[i_num_c]
 
         if self.role() == 'comprador':
+            
+            while num_c in container:
+                i_num_c = randint(0, len(Constants.cartas_compradores) - 1)
+                num_c = Constants.cartas_compradores[i_num_c]
+            container.append(num_c)
+            
             self.carta = num_c
             self.tipo_valor = Constants.tipo_compradores[i_num_c]
 
         elif self.role() == 'vendedor':
+
+            while num_v in container:
+                i_num_v = randint(0, len(Constants.cartas_vendedores) - 1)
+                num_v = Constants.cartas_vendedores[i_num_v]
+            container.append(num_v)
+
             self.carta = num_v
             self.tipo_valor = Constants.tipo_vendedores[i_num_v]
 
