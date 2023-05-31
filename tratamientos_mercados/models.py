@@ -96,60 +96,26 @@ class Subsession(BaseSubsession):
                 n_compradores_L = numero_compradores // 2
                 n_compradores_H = numero_compradores - n_compradores_L
 
-                container = []   
+                container = [] #Contenedor para validar las cartas de los jugadores
 
                 if g.id_in_subsession in Constants.ids_subsession_varian_cartas:
 
                     for p in g.get_players():
-                        if len(container) == 6:
+
+                        if len(container) == 6: #Setea el contenedor una vez lleno con las 6 opciones
                             container = []
+                            
                         # ASIGNACION EXACTA DE H Y L
                         p.in_round(r).elegir_carta_unica(container)
-                        # while True:
-                            # if p.role() == 'vendedor':
-                            #     if p.in_round(r).tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
-                            #         n_vendedores_H-=1
-                            #         break
-                            #     elif p.in_round(r).tipo_valor == 'L' and n_vendedores_L - 1 >= 0:
-                            #         n_vendedores_L-=1
-                            #         break
-                            #     else:
-                            #         continue
-                            # else:
-                            #     if p.in_round(r).tipo_valor == 'H' and n_compradores_H - 1 >= 0:
-                            #         n_compradores_H-=1
-                            #         break
-                            #     elif p.in_round(r).tipo_valor == 'L' and n_compradores_L - 1 >= 0:
-                            #         n_compradores_L-=1
-                            #         break
-                            #     else:
-                            #         continue
+
                 else:
                     for p in g.get_players():
                         # ASIGNACION EXACTA DE H Y L
-                        if len(container) == 6:
+
+                        if len(container) == 6: #Setea el contenedor una vez lleno con las 6 opciones
                             container = []
 
                         p.elegir_carta_unica(container)
-                        # while True:
-                        #     if p.role() == 'vendedor':
-                        #         if p.tipo_valor == 'H' and n_vendedores_H - 1 >= 0:
-                        #             n_vendedores_H-=1
-                        #             break
-                        #         elif p.tipo_valor == 'L' and n_vendedores_L - 1 >= 0:
-                        #             n_vendedores_L-=1
-                        #             break
-                        #         else:
-                        #             continue  
-                        #     else:
-                        #         if p.tipo_valor == 'H' and n_compradores_H - 1 >= 0:
-                        #             n_compradores_H-=1
-                        #             break
-                        #         elif p.tipo_valor == 'L' and n_compradores_L - 1 >= 0:
-                        #             n_compradores_L-=1
-                        #             break
-                        #         else:
-                        #             continue 
 
                         for ronda in p.in_all_rounds():
                             ronda.carta = p.in_all_rounds()[0].carta
@@ -199,7 +165,7 @@ class Player(BasePlayer):
 
         if self.role() == 'comprador':
             
-            while num_c in container:
+            while num_c in container: #Verifica que la carta no haya sido asignado previamente a otro comprador
                 i_num_c = randint(0, len(Constants.cartas_compradores) - 1)
                 num_c = Constants.cartas_compradores[i_num_c]
             container.append(num_c)
@@ -209,7 +175,7 @@ class Player(BasePlayer):
 
         elif self.role() == 'vendedor':
 
-            while num_v in container:
+            while num_v in container: #Verifica que la carta no haya sido asignado previamente a otro vendedor
                 i_num_v = randint(0, len(Constants.cartas_vendedores) - 1)
                 num_v = Constants.cartas_vendedores[i_num_v]
             container.append(num_v)
