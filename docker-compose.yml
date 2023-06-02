@@ -1,17 +1,18 @@
 version: '3.8'
 
-name: market-balance
+name: old-market-balance
 
 services:
   postgres:
     container_name: postgres
-    image: postgres:15
+    image: postgres:15.3
     environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_USER: otreedb
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: lee
-    ports:
-      - "5432:5432"
+    volumes:
+      - db-postgres:/var/lib/postgresql/data
 
   otree:
     container_name: otree
@@ -20,6 +21,10 @@ services:
       DATABASE_URL: postgresql://otreedb:postgres@postgres/lee
       OTREE_PRODUCTION: 1
       OTREE_AUTH_LEVEL: STUDY
+      OTREE_ADMIN_USERNAME: admin_lee
       OTREE_ADMIN_PASSWORD: 151418
     ports:
       - "80:8000"
+
+volumes:
+  db-postgres:
