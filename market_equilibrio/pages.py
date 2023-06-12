@@ -236,21 +236,49 @@ class Resultados_Finales(Page):
 class Cuestionario(Page):
     form_model = 'player'
     form_fields = ['pregunta1', 'pregunta2', 'pregunta3', 'pregunta4']
+
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
-    
+
     def error_message(self, values):
+        errores = []
         if values['pregunta1'] != "Comprador 1 y Vendedor 3":
-            return 'Pregunta 1: Respuesta Incorrecta'
+            errores.append('Pregunta 1: Respuesta incorrecta.')
 
-        elif values['pregunta2'] != "No se realiza la transacción, ambos ganan 0 y se pasa a la siguiente ronda.":
-            return 'Pregunta 2: Respuesta Incorrecta'
+        if values['pregunta2'] != "No se realiza la transacción, ambos ganan 0 y se pasa a la siguiente ronda.":
+            errores.append('Pregunta 2: Respuesta incorrecta.')
 
-        elif values['pregunta3'] != "Comprador 7 y Vendedor -5":
-            return 'Pregunta 3: Respuesta Incorrecta'
+        if values['pregunta3'] != "Comprador 7 y Vendedor -5":
+            errores.append('Pregunta 3: Respuesta incorrecta.')
 
-        elif values['pregunta4'] != "Comprador -8 y Vendedor 8":
-            return 'Pregunta 4: Respuesta Incorrecta'
+        if values['pregunta4'] != "Comprador -8 y Vendedor 8":
+            errores.append('Pregunta 4: Respuesta incorrecta.')
+
+        if errores:
+            return '\n'.join(errores)
+
+    def before_next_page(self):
+        if self.error_message(self.form.data):
+            self.subsession.finished = False  # Evitar que el jugador avance si hay errores
+        else:
+            respuestas_correctas = {
+                'pregunta1': self.player.pregunta1,
+                'pregunta2': self.player.pregunta2,
+                'pregunta3': self.player.pregunta3,
+                'pregunta4': self.player.pregunta4
+            }
+            self.player.participant.vars['respuestas_correctas'] = respuestas_correctas
+
+    def get_form_fields(self):
+        respuestas_correctas = self.player.participant.vars.get('respuestas_correctas')
+        if respuestas_correctas:
+            form_fields = []
+            for field in self.form_fields:
+                if respuestas_correctas.get(field) == self.player.__dict__.get(field):
+                    form_fields.append(field)
+            return form_fields
+        else:
+            return self.form_fields
 
 class Fin_Etapa(Page):
     def is_displayed(self):
