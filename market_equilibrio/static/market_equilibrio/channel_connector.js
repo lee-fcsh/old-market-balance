@@ -218,7 +218,19 @@ const changeprice = () => {
             'new_value': new_value,
         }));
     } else {
-        document.getElementById("error_message").style.display = 'block';
+        const error_message =  document.getElementById("error_message")
+        if (role == 'vendedor' ) {
+            error_message.textContent =
+              new_value >= carta
+                ? "No puedes vender a un precio superior al de mercado!"
+                : "No puedes vender con perdidas!";
+          } else {
+            error_message.textContent =
+              new_value <= carta
+                ? "No puedes ofretar un precio mayor al de mercado!"
+                : "No puedes ofertar un precio mayor a tu presupuesto!";
+          }
+          error_message.style.display = "block";
     }
 };
 
