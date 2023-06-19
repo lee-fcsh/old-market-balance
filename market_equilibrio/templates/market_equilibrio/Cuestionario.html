@@ -6,8 +6,28 @@ TEST DE COMPRENSIÓN
 {% endblock %}
 
 {% block content %}
-
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">GANANCIAS EN LA RONDA</h5>
+                <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% include Constants.ganancias_template2 %}
+            </div>
+        </div>
+    </div>
+</div>
 <div>
+    <div id="helpCuestionary" style="display: none; text-align: left; margin-block:25px; margin-left: 40px;">
+        Si no recuerda la forma de calcular las ganancias, de clic
+        <button type="button" id="first_btn" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Aquí</button>
+
+    </div>
     <ol>
         <div class="card bg-light instructions" style="padding: 2em;text-align: justify;">
             <li>Suponga un comprador con un presupuesto de 8 y un vendedor con un costo de producción de 4. Ambos
@@ -161,6 +181,36 @@ TEST DE COMPRENSIÓN
 {% next_button %}
 {% endblock %}
 
+{% block scripts %}
+<script>
+    const lista = document.querySelector('.errorlist');
+    const preguntas = document.querySelector('ol').children
+    const helpContainer = document.querySelector('#helpCuestionary')
+    const ubicaciones = [0,2,4,6]
+    function completar(id){
+        const opciones = preguntas[ubicaciones[id]].getElementsByTagName('input')
+        if(id < 3){
+            opciones[0].checked = true
+        }else{
+            opciones[2].checked = true
+        }
+    }
+    function autofill (){
+        if(lista){
+            helpContainer.style.display = 'block'
+            const errores = lista.firstChild.textContent;
+            for(let i = 0; i<4; i++){
+                if(!errores.includes(i+1)){
+                    completar(i)
+                }
+            }
+        }
+    }
+    autofill()
+
+</script>
+
+{% endblock %}
 
 
 {% block styles %}

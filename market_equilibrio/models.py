@@ -13,6 +13,8 @@ Prueba del tiempo real de el mercado
 
 
 class Constants(BaseConstants):
+    ganancias_template = 'tratamientos_mercados/Ganancias.html'
+    ganancias_template2 = 'tratamientos_mercados/Ganancias_etapa1.html'
     name_in_url = 'market_equilibrio'
     players_per_group = 6
     num_rounds = 6 

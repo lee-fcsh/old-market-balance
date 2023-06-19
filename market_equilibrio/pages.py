@@ -234,6 +234,12 @@ class Resultados_Finales(Page):
         }
 
 class Cuestionario(Page):
+    mistakes = []
+    def vars_for_template(self):
+        return dict(
+            message = " hola "
+        )
+
     form_model = 'player'
     form_fields = ['pregunta1', 'pregunta2', 'pregunta3', 'pregunta4']
 
@@ -243,6 +249,7 @@ class Cuestionario(Page):
     def error_message(self, values):
         errores = []
         if values['pregunta1'] != "Comprador 1 y Vendedor 3":
+            
             errores.append('Pregunta 1: Respuesta incorrecta.')
 
         if values['pregunta2'] != "No se realiza la transacción, ambos ganan 0 y se pasa a la siguiente ronda.":
