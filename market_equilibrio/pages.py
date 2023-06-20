@@ -234,12 +234,6 @@ class Resultados_Finales(Page):
         }
 
 class Cuestionario(Page):
-    mistakes = []
-    def vars_for_template(self):
-        return dict(
-            message = " hola "
-        )
-
     form_model = 'player'
     form_fields = ['pregunta1', 'pregunta2', 'pregunta3', 'pregunta4']
 

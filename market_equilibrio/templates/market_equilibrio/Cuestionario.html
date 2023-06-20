@@ -23,9 +23,9 @@ TEST DE COMPRENSIÓN
     </div>
 </div>
 <div>
-    <div id="helpCuestionary" style="display: none; text-align: left; margin-block:25px; margin-left: 40px;">
-        Si no recuerda la forma de calcular las ganancias, de clic
-        <button type="button" id="first_btn" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Aquí</button>
+    <div id="helpCuestionary" style="display: none;" class="p-3 alert alert-warning rounded-3">
+        Si no recuerda la forma de calcular las ganancias, presione aquí para volver a leer las instrucciones del experimento.
+        <button type="button" id="first_btn" class="btn btn-info ml-2" data-toggle="modal" data-target=".bd-example-modal-lg">Instrucciones</button>
 
     </div>
     <ol>
@@ -189,7 +189,7 @@ TEST DE COMPRENSIÓN
     const ubicaciones = [0,2,4,6]
     function completar(id){
         const opciones = preguntas[ubicaciones[id]].getElementsByTagName('input')
-        if(id < 3){
+        if(id < 2){
             opciones[0].checked = true
         }else{
             opciones[2].checked = true
