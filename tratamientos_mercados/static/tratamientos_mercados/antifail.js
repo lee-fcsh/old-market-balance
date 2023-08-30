@@ -3,7 +3,6 @@ function highlighterAction() {
         const completados = document.querySelectorAll('.table-success')
         const alone = completados.length >= 6
         const checked = !!localStorage.getItem('gameOver')
-        debugger
         if(!checked && alone){
             localStorage.setItem('gameOver', 'true')
             location.reload()
@@ -22,7 +21,6 @@ function highlighter() {
         highlighterAction();
     }, 200);
 }
-
 
 if (document.readyState == 'complete') {
     highlighter();
