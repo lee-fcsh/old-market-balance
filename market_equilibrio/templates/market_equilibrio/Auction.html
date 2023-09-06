@@ -58,7 +58,11 @@ Mercado
                         </div>
                         <div class="col-sm-6" style="float: left;">
                             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                                {% if player.role == 'vendedor' %}
+                                <div class="card-header" style="font-size: .91em;text-align: center;"><b>Tipo de vendedor</b></div>
+                                {% else %}
                                 <div class="card-header" style="font-size: .91em;text-align: center;"><b>Tipo de comprador</b></div>
+                                {% endif %}
                                 <div class="card-body">
                                     <h1 class="display-1 text-center">{{player.tipo_valor}}</h1>
                                 </div>
